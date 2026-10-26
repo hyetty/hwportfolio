@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hyewon Kim Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="침해사고의 흔적을 분석해 공격 경로를 밝히는 신입 포렌식 분석가, 김혜원의 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+@font-face{font-family:"Mr Dafoe";src:url(fonts/mr-dafoe-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:block}
+/* Layout: 홈 = 그라디언트 캡슐 히어로(인트로) → Education → Activities → Skills → Projects(태그 카드) → Awards → Certificates.
+   상세 = #forensic / #homecam / #cardnews 해시로 여는 블로그형 페이지(좌 프로필 · 본문 · 우 목차). */
+:root{
+  --bg:#FAFBFC; --surface:#FFFFFF; --ink:#14181E; --muted:#5B6572; --faint:#8A93A0; --line:#E3E7ED; --line2:#CDD3DB;
+  --accent:#17708F; --accent-soft:#E2F0F4; --mark:rgba(23,112,143,.18);
+  --sign:#D6457A;
+  --t-school:#0F8A6C; --t-school-bg:#DDF3EC; --t-me:#B86A0C; --t-me-bg:#FCEFD9; --t-edu:#2F5FB3; --t-edu-bg:#E2EAF8;
+  --g1:#D3EAF0; --g2:#E3E9F7; --g3:#EEF3E6; --hex:rgba(20,24,30,.065);
+  --sans:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --code:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --mono:var(--sans);
+  --script:"Mr Dafoe","Snell Roundhand","Segoe Script",cursive;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1216; --surface:#151A20; --ink:#E7ECF1; --muted:#9AA4B2; --faint:#6E7887; --line:#242C36; --line2:#323C48;
+  --accent:#6FC4DD; --accent-soft:#15303A; --mark:rgba(111,196,221,.22); --sign:#FF86AE;
+  --t-school:#5FD3B0; --t-school-bg:#123128; --t-me:#F0B25C; --t-me-bg:#33260F; --t-edu:#8DB2F2; --t-edu-bg:#18243A;
+  --g1:#152F37; --g2:#1A2233; --g3:#1D291D; --hex:rgba(231,236,241,.055); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1216; --surface:#151A20; --ink:#E7ECF1; --muted:#9AA4B2; --faint:#6E7887; --line:#242C36; --line2:#323C48;
+  --accent:#6FC4DD; --accent-soft:#15303A; --mark:rgba(111,196,221,.22); --sign:#FF86AE;
+  --t-school:#5FD3B0; --t-school-bg:#123128; --t-me:#F0B25C; --t-me-bg:#33260F; --t-edu:#8DB2F2; --t-edu-bg:#18243A;
+  --g1:#152F37; --g2:#1A2233; --g3:#1D291D; --hex:rgba(231,236,241,.055); color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.ico{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1240px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:flex;align-items:center;justify-content:space-between;gap:16px;height:58px}
+.logo{font-family:var(--script);font-size:28px;line-height:1;text-decoration:none;padding-top:6px;white-space:nowrap}
+.nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-size:13.5px;color:var(--muted);text-decoration:none;padding:6px 9px;border-radius:8px;white-space:nowrap}
+.nav a:hover{color:var(--ink);background:var(--accent-soft)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:24px 0}
+.capsule{position:relative;overflow:hidden;border-radius:32px;padding:clamp(52px,8vw,100px) clamp(24px,6vw,76px) clamp(44px,6vw,68px);
+  background:linear-gradient(118deg,var(--g1) 0%,var(--g2) 55%,var(--g3) 100%)}
+.hexdump{position:absolute;right:-16px;top:0;bottom:0;margin:0;padding:28px 0;font:500 12px/2 var(--code);color:var(--hex);white-space:pre;pointer-events:none;user-select:none;overflow:hidden}
+.kicker{position:relative;font:700 13px/1 var(--sans);letter-spacing:.14em;color:var(--accent);display:flex;align-items:center;gap:10px;margin:0 0 26px}
+.kicker i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--mark)}
+.headline{position:relative;margin:0;font-size:clamp(38px,7vw,72px);line-height:1.16;letter-spacing:-.04em;font-weight:800}
+.headline .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.headline .ln.key{overflow:visible}
+.headline .ln > span{display:inline-block;position:relative}
+.headline em{font-style:normal;color:var(--accent)}
+.sign{position:absolute;left:-1%;top:-14%;z-index:2;font-family:var(--script);font-weight:400;font-size:1.3em;line-height:1;letter-spacing:0;color:var(--sign);transform:rotate(-6deg);opacity:.95;white-space:nowrap;padding:0 .25em .15em .1em;pointer-events:none}
+.hero-sub{position:relative;margin:34px 0 0;color:var(--muted);font-size:clamp(15.5px,2vw,18px);font-weight:500}
+.links{position:relative;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:7px;font:600 13px/1 var(--sans);padding:10px 15px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+
+@media (prefers-reduced-motion:no-preference){
+  body:not(.played) .kicker{animation:fade .6s ease .1s both}
+  body:not(.played) .headline .ln > span{animation:rise .9s cubic-bezier(.2,.7,.1,1) both}
+  body:not(.played) .headline .ln:nth-child(1) > span{animation-delay:.2s}
+  body:not(.played) .headline .ln:nth-child(2) > span{animation-delay:.36s}
+  body:not(.played) .headline .ln:nth-child(3) > span{animation-delay:.52s}
+  body:not(.played) .sign{animation:write 1.6s cubic-bezier(.45,.05,.3,1) 1.15s both}
+  body:not(.played) .hero-sub,body:not(.played) .links{animation:fade .7s ease 2.5s both}
+  body:not(.played) .top{animation:fade .6s ease 2.6s both}
+  body:not(.played) .hexdump{animation:fade 1.6s ease .2s both}
+}
+@keyframes rise{from{transform:translateY(108%)}to{transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes write{from{clip-path:inset(-30% 100% -30% -5%)}to{clip-path:inset(-30% -8% -30% -5%)}}
+
+/* ---------- home sections ---------- */
+.sec{padding-block:64px 0;scroll-margin-top:64px}
+.sh{display:flex;align-items:center;gap:10px;font-size:clamp(22px,3vw,27px);line-height:1.2;letter-spacing:-.02em;font-weight:780;margin:0 0 0;padding-bottom:16px;border-bottom:2px solid var(--ink)}
+.sh .ico{width:26px;height:26px;color:var(--accent);stroke-width:1.7}
+.rows{display:grid}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row h3{margin:0;font-size:18px;font-weight:720;letter-spacing:-.015em}
+.row h3 small{font-size:15px;font-weight:500;color:var(--muted);margin-left:8px}
+.row .when{font:500 13px/1.4 var(--mono);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.row .desc{grid-column:1/-1;color:var(--muted);font-size:15px}
+.row ul{grid-column:1/-1;margin:2px 0 0;padding-left:18px;display:grid;gap:4px;color:var(--muted);font-size:15px}
+.row li::marker{color:var(--accent)}
+.row .v{font:650 14px/1.4 var(--mono);color:var(--accent);white-space:nowrap}
+
+/* skills */
+.srow{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.srow > p{margin:0;font-weight:700;font-size:15px;padding-top:3px}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.b{display:inline-flex;align-items:stretch;border-radius:6px;overflow:hidden;font:600 12.5px/1 var(--sans);border:1px solid var(--line);background:var(--surface)}
+.b i{width:6px;background:var(--c,var(--accent))}
+.b span{padding:7px 10px}
+
+/* project cards */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:26px}
+.card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--surface);border:1.5px solid var(--ink);border-radius:16px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+.card:hover,.card:focus-visible{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--ink)}
+.thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0b0d10;border-bottom:1.5px solid var(--ink);max-width:100%}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;left:12px;top:12px;font:700 12px/1 var(--sans);padding:6px 10px;border-radius:999px;border:1.5px solid var(--ink);background:var(--tb);color:var(--tc)}
+.tag.school{--tb:var(--t-school-bg);--tc:var(--t-school)}
+.tag.me{--tb:var(--t-me-bg);--tc:var(--t-me)}
+.tag.edu{--tb:var(--t-edu-bg);--tc:var(--t-edu)}
+.card-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card .period{font:500 12.5px/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.card h3{margin:0;font-size:clamp(18px,2.1vw,20px);line-height:1.4;letter-spacing:-.02em;font-weight:760}
+.card:hover h3{color:var(--accent)}
+.card .sum{margin:0;font-size:14.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .role{display:flex;gap:7px;align-items:flex-start;font-size:13.5px;font-weight:650;margin:0}
+.card .role .ico{margin-top:3px;color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.chips span{font:400 12px/1 var(--mono);padding:6px 9px;border-radius:999px;border:1px solid var(--line2);color:var(--ink)}
+
+footer{padding-block:56px 44px;font-size:13px;color:var(--faint);text-align:center}
+
+/* ---------- detail ---------- */
+.detail{max-width:1240px;margin:0 auto;padding:32px max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px));display:grid;grid-template-columns:220px minmax(0,1fr) 200px;gap:44px;align-items:start}
+.side{position:sticky;top:calc(80px + env(safe-area-inset-top,0px));display:grid;gap:18px}
+.prof{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--surface);display:grid;gap:6px}
+.prof .nm{font-family:var(--script);font-size:34px;line-height:1;padding-top:6px}
+.prof p{margin:0;font-size:13px;color:var(--muted);line-height:1.55}
+.side h6{margin:0 0 6px;font:500 11px/1 var(--mono);letter-spacing:.12em;color:var(--faint);text-transform:uppercase}
+.plist{display:grid;gap:2px}
+.plist a{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13.5px;text-decoration:none;padding:7px 10px;border-radius:8px;color:var(--muted)}
+.plist a:hover{background:var(--accent-soft);color:var(--ink)}
+.plist a.on{background:var(--accent-soft);color:var(--ink);font-weight:650}
+.plist a span:last-child{font:500 10.5px/1 var(--mono);color:var(--faint)}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--accent)}
+.toc{position:sticky;top:calc(80px + env(safe-area-inset-top,0px));display:grid;gap:4px;max-height:calc(100vh - 110px);overflow:auto}
+.toc a{display:block;font-size:13px;line-height:1.45;color:var(--faint);text-decoration:none;padding:4px 0 4px 12px;border-left:2px solid var(--line)}
+.toc a.sub{padding-left:24px;font-size:12.5px}
+.toc a:hover{color:var(--ink)}
+.toc a.on{color:var(--accent);border-left-color:var(--accent);font-weight:600}
+
+.post{min-width:0;max-width:760px}
+.crumb{font:500 12px/1 var(--mono);color:var(--faint);margin:0 0 18px;display:flex;gap:6px;align-items:center}
+.crumb a{text-decoration:none}
+.crumb a:hover{color:var(--accent)}
+.post-head{display:grid;gap:12px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.post-head .tag{position:static;justify-self:start}
+.post-head h1{margin:0;font-size:clamp(26px,3.8vw,38px);line-height:1.28;letter-spacing:-.035em;font-weight:800;text-wrap:balance}
+.post-head .lede{margin:0;font-size:16.5px;color:var(--muted)}
+.pmeta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;color:var(--muted);margin:0}
+.pmeta b{color:var(--ink);font-weight:650}
+.post h2{font-size:23px;line-height:1.35;letter-spacing:-.02em;font-weight:780;margin:52px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line);scroll-margin-top:76px}
+.post h3{font-size:18px;line-height:1.4;font-weight:720;letter-spacing:-.015em;margin:32px 0 10px;scroll-margin-top:76px}
+.post p{margin:0 0 14px;font-size:15.5px;line-height:1.8}
+.post ul,.post ol.plain{margin:0 0 16px;padding-left:20px;display:grid;gap:6px;font-size:15.5px;line-height:1.75}
+.post li::marker{color:var(--accent)}
+.post strong{font-weight:700}
+.mine{display:inline-block;font:700 10.5px/1 var(--sans);padding:4px 7px;border-radius:5px;background:var(--sign);color:var(--surface);vertical-align:2px;margin-left:6px;letter-spacing:.02em}
+.callout{border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--surface);border-radius:0 12px 12px 0;padding:14px 18px;margin:0 0 18px;font-size:15px;line-height:1.75}
+.callout b{color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:6px 0 20px}
+.stat{padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.stat b{display:block;font-size:24px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.2}
+.stat span{font-size:12.5px;color:var(--muted)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:0 0 20px;background:var(--surface)}
+.tbl table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+.tbl th{font:600 12px/1.3 var(--sans);color:var(--muted);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--bg);white-space:nowrap}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.m{font-family:var(--mono);font-size:12.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tbl tr.hl td{background:color-mix(in srgb,var(--sign) 8%,transparent)}
+code{font:400 12.8px/1.4 var(--code);background:var(--accent-soft);padding:1px 5px;border-radius:4px;word-break:break-all}
+figure{margin:4px 0 22px;display:grid;gap:8px}
+figure img{border-radius:12px;border:1px solid var(--line);width:100%}
+figcaption{font-size:12.5px;color:var(--faint);text-align:center}
+.figs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.flow{list-style:none;margin:6px 0 22px;padding:0;display:grid;gap:0;counter-reset:f}
+.flow li{counter-increment:f;display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:15px;line-height:1.6}
+.flow li:last-child{border-bottom:0}
+.flow .d{font:500 12.5px/1.6 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.flow li.me{background:color-mix(in srgb,var(--sign) 7%,transparent);border-radius:10px;padding-left:10px;padding-right:10px;margin:0 -10px}
+.steps{list-style:none;margin:6px 0 22px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;counter-reset:s}
+.steps li{counter-increment:s;padding:16px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:14.5px;color:var(--muted);line-height:1.65}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;font:500 12px/1 var(--mono);color:var(--accent);margin-bottom:8px}
+.steps b{display:block;color:var(--ink);font-size:15.5px;margin-bottom:4px}
+.quote{font-size:15.5px;line-height:1.85;padding:18px 20px;border-left:3px solid var(--sign);background:var(--surface);border-radius:0 12px 12px 0;margin:0 0 16px}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:56px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.pager a{display:grid;gap:4px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;text-decoration:none;background:var(--surface)}
+.pager a:hover{border-color:var(--accent)}
+.pager small{font:500 11px/1 var(--mono);color:var(--faint);letter-spacing:.08em}
+.pager span{font-size:14.5px;font-weight:650}
+.pager a.next{text-align:right}
+
+
+/* poster */
+figure.poster{margin:28px 0 8px}
+figure.poster img{max-width:560px;margin:0 auto;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.14)}
+/* evolution */
+.evo{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:14px;align-items:stretch;margin:6px 0 22px}
+.evo-col{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--surface)}
+.evo-col.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.evo-k{margin:0 0 10px!important;font:600 12.5px/1.4 var(--mono)!important;color:var(--accent);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.evo-k span{font-weight:500;padding:3px 7px;border-radius:5px;background:var(--accent-soft)}
+.evo-col ol{margin:0!important;font-size:14.5px!important}
+.evo-note{margin:10px 0 0!important;font-size:13px!important;color:var(--faint)}
+.evo-arrow{align-self:center;font-size:22px;color:var(--faint)}
+/* tistory */
+.tistory{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;margin:4px 0 20px}
+.ts-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px}
+.ts-head a{font-size:13px;color:var(--accent);text-decoration:none}
+.ts-item{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;text-decoration:none;font-size:14.5px;border-bottom:1px solid var(--line)}
+.ts-item:last-child{border-bottom:0}
+.ts-item:hover span:first-child{color:var(--accent)}
+.ts-item .m{font:500 12.5px/1.6 var(--mono);color:var(--faint);white-space:nowrap}
+/* phone mock (fixed light UI, like the real app screenshot) */
+.phone-wrap{display:grid;justify-items:center;gap:10px;margin:8px 0 26px}
+.phone{width:min(340px,100%);border-radius:46px;padding:11px;background:#111316;box-shadow:0 0 0 1px #2a2e35,0 24px 60px rgba(0,0,0,.25)}
+.screen{position:relative;height:640px;border-radius:36px;overflow:hidden;background:#fff;color:#111;display:flex;flex-direction:column;font-family:var(--sans)}
+.screen svg{width:22px;height:22px;fill:none;stroke:#111;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sbar{display:flex;justify-content:space-between;align-items:center;padding:12px 22px 4px;font-size:12px;font-weight:600;flex:none}
+.sb-r{display:flex;gap:4px;align-items:center}
+.sb-r i{width:12px;height:8px;border-radius:2px;background:#111;opacity:.75}
+.sb-r b{font-size:10px;background:#111;color:#fff;border-radius:6px;padding:1px 5px}
+.ig-scroll{flex:1;overflow-y:auto;scrollbar-width:none}
+.ig-scroll::-webkit-scrollbar{display:none}
+.ig-top{display:flex;align-items:center;justify-content:space-between;padding:8px 14px}
+.ig-user{display:flex;align-items:center;gap:2px;font-weight:700;font-size:17px}
+.ig-user svg{width:16px;height:16px}
+.ig-user::after{content:"";width:6px;height:6px;border-radius:50%;background:#ff3040;margin-left:3px}
+.ig-icons{display:flex;gap:14px}
+.ig-prof{display:flex;align-items:center;gap:16px;padding:8px 16px}
+.ig-ava{width:74px;height:74px;border-radius:50%;background:#f3efe6;display:grid;place-items:center;font-size:40px;flex:none;line-height:1}
+.ig-ava.sm{width:28px;height:28px;font-size:15px}
+.ig-stats{flex:1;min-width:0}
+.ig-name{margin:0 0 4px!important;font-size:13.5px!important;font-weight:600}
+.ig-stats div{display:flex;justify-content:space-between;gap:6px}
+.ig-stats span{display:grid;font-size:12px;line-height:1.3;color:#111}
+.ig-stats b{font-size:15px;font-weight:600}
+.ig-bio{padding:2px 16px 8px}
+.ig-bio p{margin:0!important;font-size:13px!important;line-height:1.5!important}
+.ig-link{color:#00376b;font-weight:600}
+.ig-btns{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px 14px 10px}
+.ig-btns span{text-align:center;font-size:13px;font-weight:600;padding:7px 0;border-radius:8px;background:#efefef}
+.ig-btns .ig-follow{background:#0095f6;color:#fff}
+.ig-tabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #e6e6e6}
+.ig-tabs span{display:grid;place-items:center;padding:8px 0 7px;opacity:.45}
+.ig-tabs span.on{opacity:1;box-shadow:inset 0 -1.5px 0 #111}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px}
+.ig-grid button{border:0;padding:0;margin:0;background:#000;aspect-ratio:3/4;cursor:pointer;display:block;overflow:hidden}
+.ig-grid img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.ig-grid button:hover img{opacity:.8}
+.ig-post{position:absolute;inset:0;top:30px;background:#fff;display:flex;flex-direction:column;animation:slidein .28s ease}
+@keyframes slidein{from{transform:translateX(30%);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.ig-post{animation:none}}
+.ig-ph{display:flex;align-items:center;gap:14px;padding:8px 12px;border-bottom:1px solid #eee;font-weight:700;font-size:16px;flex:none}
+.ig-ph button{border:0;background:none;padding:2px;cursor:pointer;display:grid}
+.ig-pscroll{flex:1;overflow-y:auto;scrollbar-width:none}
+.ig-pscroll::-webkit-scrollbar{display:none}
+.ig-urow{display:flex;align-items:center;gap:8px;padding:8px 12px;font-size:13px}
+.ig-img{background:#000;aspect-ratio:1/1.16;overflow:hidden}
+.ig-img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.ig-dots{display:flex;justify-content:center;gap:4px;padding:8px 0 0}
+.ig-dots i{width:5px;height:5px;border-radius:50%;background:#c7c7c7}
+.ig-dots i.on{background:#0095f6}
+.ig-acts{display:flex;gap:14px;padding:6px 12px}
+.ig-acts .r{margin-left:auto}
+.ig-cap{padding:2px 12px;font-size:13px;line-height:1.55;white-space:pre-line;word-break:keep-all}
+.ig-date{margin:6px 12px 18px!important;font-size:11.5px!important;color:#8e8e8e}
+.phone-hint{margin:0!important;font-size:13px!important;color:var(--faint)}
+@media (max-width:760px){.evo{grid-template-columns:1fr}.evo-arrow{transform:rotate(90deg);justify-self:center}}
+
+.chipb{margin-top:auto;padding-top:4px}
+.post-head .chipb{margin-top:0}
+.card .win,.win{display:flex;gap:7px;align-items:center;font-size:13.5px;font-weight:700;color:var(--sign);margin:-4px 0 0}
+.card .win .ico{color:var(--sign)}
+.stat.win{border-color:color-mix(in srgb,var(--sign) 45%,var(--line));background:color-mix(in srgb,var(--sign) 6%,var(--surface))}
+.stat.win b{color:var(--sign)}
+.ig-links{display:flex;flex-wrap:wrap;gap:6px 12px;margin:0 12px 18px!important;font-size:12.5px!important}
+.ig-links a{color:#00376b;font-weight:600;text-decoration:none}
+.ts-head span{font:500 11px/1 var(--mono);color:var(--faint);margin-left:4px}
+.ts-list{max-height:330px;overflow-y:auto}
+.concept{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:18px 20px;margin:0 0 20px}
+.cc-t{font-weight:750;font-size:16px!important;margin:0 0 12px!important}
+.cc-t small{font:500 12px/1 var(--mono);color:var(--faint);margin-left:6px}
+.concept dl{margin:0;display:grid;gap:0}
+.concept dl div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:9px 0;border-top:1px dashed var(--line)}
+.concept dt{font-size:13px;font-weight:700;color:var(--accent)}
+.concept dd{margin:0;font-size:14px;line-height:1.65;color:var(--muted)}
+.cc-link{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent);text-decoration:none;font-weight:600}
+@media (max-width:760px){.concept dl div{grid-template-columns:1fr;gap:2px}}
+/* ---- mask demo ---- */
+.md{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:22px;align-items:start;margin:8px 0 10px}
+.md-stage{display:grid;gap:10px}
+.md-frame{position:relative;aspect-ratio:360/820;max-width:100%;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.md-frame>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.md-svg{position:absolute;inset:0;width:100%;height:100%}
+.md-svg g{opacity:0;transition:opacity .45s ease}
+.face-hl{fill:rgba(23,112,143,.08);stroke:#17708F;stroke-width:1.5;stroke-dasharray:4 3}
+.bb{fill:none;stroke-width:2.2;stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.1s ease}
+.bb.body{stroke:#3B5BDB}.bb.face{stroke:#E8B400;transition-delay:.7s}
+.bbt{font:600 13px/1 var(--code);fill:#3B5BDB}.bbt.f{fill:#B98F00}
+.g3a line{stroke:#22B8CF;stroke-width:1.6;opacity:.8}
+.g3b circle{fill:#22B8CF;stroke:#fff;stroke-width:1.2;opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2);transition:opacity .25s ease var(--d),transform .25s ease var(--d)}
+.g3c circle{fill:transparent;stroke:#9AA4B2;stroke-width:2.2;opacity:0;transition:opacity .3s ease var(--d),fill .4s ease calc(var(--d) + 900ms),stroke .4s ease calc(var(--d) + 900ms)}
+.md-scan{position:absolute;left:0;right:0;height:3px;top:9%;background:linear-gradient(90deg,transparent,#17708F,transparent);box-shadow:0 0 14px #17708F;opacity:0}
+.md-emb,.md-match{position:absolute;font:500 11px/1.45 var(--code);background:rgba(20,24,30,.86);color:#fff;border-radius:8px;padding:7px 9px;opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease;pointer-events:none}
+.md-emb{left:56%;top:6%;display:grid;max-width:46%}
+.md-emb b{font-weight:600;color:#7FD3EA}.md-emb em{font-style:normal;color:#9FE6B4}
+.md-match{left:4%;top:22%;color:#FFE08A}
+.md-mask{position:absolute;left:27.2%;top:21.7%;width:41.7%;height:22.2%;border-radius:4px;background:linear-gradient(180deg,rgba(214,176,158,.92),rgba(232,204,190,.9));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;transform:scale(.92);transition:opacity .6s ease,transform .6s ease;display:grid;place-items:center}
+.md-mask span{font:600 11px/1 var(--code);letter-spacing:.2em;color:rgba(80,50,40,.55)}
+.md-read{display:grid;gap:4px;font-size:13px;color:var(--muted);opacity:0;transition:opacity .4s}
+.md-read b{color:var(--ink)}
+.md-read .r-up b{color:var(--sign)}
+.md-play{justify-self:start;font:600 12.5px/1 var(--sans);padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.md-play:hover{border-color:var(--accent);color:var(--accent)}
+.md-steps{list-style:none;margin:0!important;padding:0!important;display:grid!important;gap:8px!important}
+.md-steps li{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden;transition:border-color .3s,background .3s}
+.md-steps button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;padding:14px 16px;width:100%;cursor:pointer}
+.md-steps button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:12px}
+.md-steps .n{font:500 12px/1.6 var(--mono);color:var(--faint)}
+.md-steps .t{font-size:14px;line-height:1.65;color:var(--muted)}
+.md-steps .t b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:2px}
+.md-steps .bar{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--accent)}
+.md-steps li.cur{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 6%,var(--surface))}
+.md-steps li.cur .n{color:var(--accent)}
+.md-steps li.cur .bar{animation:mdbar var(--dur,2.6s) linear forwards}
+.md.static .md-steps li.cur .bar{animation:none;width:100%}
+@keyframes mdbar{to{width:100%}}
+.md-legend{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:12.5px!important;color:var(--faint);margin:0 0 20px!important}
+.md-legend .k{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:-8px;vertical-align:-1px}
+.md-legend .k.ex{border:2px solid #EF4444}.md-legend .k.cv{border:2px solid #22C55E}.md-legend .k.lm{background:#22B8CF}
+/* states */
+.md[data-step="1"] .g1,.md[data-step="2"] .g1{opacity:1}
+.md[data-step="1"] .md-scan{animation:mdscan 1.6s ease-in-out 2}
+.md[data-step="1"] .md-emb{opacity:1;transform:none;transition-delay:.9s}
+@keyframes mdscan{0%{top:8%;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:21%;opacity:0}}
+.md[data-step="2"] .g2,.md[data-step="3"] .g2{opacity:1}
+.md[data-step="3"] .g2{opacity:.35}
+.md[data-step="2"] .bb,.md[data-step="3"] .bb,.md[data-step="4"] .bb{stroke-dashoffset:0}
+.md[data-step="2"] .md-match{opacity:1;transform:none;transition-delay:1.6s}
+.md[data-step="3"] .g3a,.md[data-step="3"] .g3b,.md[data-step="3"] .g3c,.md[data-step="4"] .g3c{opacity:1}
+.md[data-step="3"] .g3a{transition-delay:.3s}
+.md[data-step="3"] .g3b circle{opacity:1;transform:none}
+.md[data-step="3"] .g3c circle,.md[data-step="4"] .g3c circle{opacity:1;--d2:0ms}
+.md[data-step="3"] .g3c circle{transition-delay:calc(var(--d) + 1600ms),calc(var(--d) + 2400ms),calc(var(--d) + 2400ms)}
+.md[data-step="3"] .g3c .ex,.md[data-step="4"] .g3c .ex{stroke:#EF4444;fill:rgba(239,68,68,.16)}
+.md[data-step="3"] .g3c .cv,.md[data-step="4"] .g3c .cv{stroke:#22C55E;fill:rgba(34,197,94,.12)}
+.md[data-step="4"] .g3c{opacity:.25}
+.md[data-step="3"] .md-read,.md[data-step="4"] .md-read{opacity:1}
+.md[data-step="3"] .md-read{transition-delay:4.2s}
+.md[data-step="4"] .md-mask{opacity:1;transform:none}
+.md.static *{transition-delay:0s!important}
+@media (prefers-reduced-motion:reduce){.md *{transition:none!important;animation:none!important}}
+@media (max-width:760px){.md{grid-template-columns:1fr}.md-stage{max-width:300px;justify-self:center;width:100%}}
+
+.rp-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.rp-h a{font-size:13.5px;font-weight:600;color:var(--muted);text-decoration:none}
+.rp-h a:hover{color:var(--accent)}
+.rps{display:grid;gap:14px;margin:6px 0 24px}
+.rp{display:grid;gap:9px;padding:18px 22px;border:1.5px solid var(--ink);border-radius:16px;background:var(--surface);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
+.rp:hover,.rp:focus-visible{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.rp-tags{display:flex;flex-wrap:wrap;gap:6px}
+.rp-cat{font:700 11.5px/1 var(--sans);padding:5px 9px;border-radius:999px;background:#EB531F;color:#fff}
+.rp-topic{font:600 11.5px/1 var(--sans);padding:4px 9px;border-radius:999px;border:1.5px solid var(--ink)}
+.rp-t{font-size:17.5px;font-weight:760;letter-spacing:-.02em}
+.rp:hover .rp-t{color:var(--accent)}
+.rp-d{font-size:14.5px;color:var(--muted);line-height:1.65}
+.rp-meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted)}
+.rp-date{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:12.5px}
+
+.olist a{color:var(--accent);font-weight:600;text-underline-offset:3px}
+.olist a:hover{text-decoration-thickness:2px}
+
+.ig-user,.ig-urow a,.ig-cap a{color:#111;text-decoration:none}
+.ig-user:hover,.ig-urow a:hover{text-decoration:underline}
+.ig-link a{color:#00376b;text-decoration:none}
+.ig-link a:hover{text-decoration:underline}
+.pmeta a{color:var(--accent);text-underline-offset:3px}
+
+/* scroll reveal */
+.rv-on .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.1,1),transform .7s cubic-bezier(.2,.7,.1,1);transition-delay:var(--rvd,0ms)}
+.rv-on .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv-on .rv{opacity:1;transform:none;transition:none}}
+
+/* about */
+.pf{display:grid;grid-template-columns:180px minmax(0,1fr);gap:36px;align-items:center;padding-top:26px}
+.pf-photo{width:180px;height:auto;max-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;border:1px solid var(--line)}
+.pf-info{min-width:0}
+.pf-ko{margin:0;font-size:clamp(28px,3.6vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1.2}
+.pf-en{margin:2px 0 0;font-size:17px;font-weight:600;color:var(--muted);letter-spacing:.01em}
+.pf-dl{margin:22px 0 0;display:grid;border-top:1px solid var(--line)}
+.pf-dl div{display:grid;grid-template-columns:80px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.pf-dl dt{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--faint);text-transform:uppercase}
+.pf-dl dd{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:15.5px;font-weight:550;font-variant-numeric:tabular-nums}
+.pf-dl dd .sel{user-select:all;word-break:break-all}
+.pf-dl a{color:inherit;text-underline-offset:3px}
+.pf-dl a:hover{color:var(--accent)}
+.mini{font:600 12px/1 var(--sans);padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.mini:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:560px){.pf{grid-template-columns:1fr;gap:20px}.pf-photo{width:150px}}
+
+.row:has(.hlogo){align-items:center}
+.hlogo{display:flex;align-items:center;flex-wrap:wrap;gap:0 4px}
+.emblem{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);margin-right:10px;flex:none}
+.emblem img{width:30px;height:auto}
+
+@media (max-width:1100px){
+  .detail{grid-template-columns:minmax(0,1fr) 190px;gap:36px}
+  .side{display:none}
+}
+@media (max-width:820px){
+  .detail{grid-template-columns:minmax(0,1fr)}
+  .toc{display:none}
+}
+@media (max-width:760px){
+  .grid{grid-template-columns:1fr;gap:24px}
+  .srow{grid-template-columns:1fr;gap:8px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .figs,.steps{grid-template-columns:1fr}
+  .capsule{border-radius:24px}
+  .hexdump{display:none}
+  .row{grid-template-columns:1fr}
+  .flow li{grid-template-columns:1fr;gap:2px}
+  .pager{grid-template-columns:1fr}
+}
+@media (max-width:620px){.nav{display:none}}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-edu" viewBox="0 0 24 24"><path d="M22 9.5 12 4.5 2 9.5l10 5 10-5z"/><path d="M6 11.5v5c3.2 2.4 8.8 2.4 12 0v-5"/><path d="M22 9.5v5"/></symbol>
+  <symbol id="i-act" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h11l-2.2 4L16 12H5"/></symbol>
+  <symbol id="i-skill" viewBox="0 0 24 24"><path d="m8 8-5 4 5 4"/><path d="m16 8 5 4-5 4"/><path d="m14 4-4 16"/></symbol>
+  <symbol id="i-proj" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7"/><path d="M3 13h18"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M8 5.5H5.5a2.5 2.5 0 0 0 2.6 3.9"/><path d="M16 5.5h2.5a2.5 2.5 0 0 1-2.6 3.9"/><path d="M12 13v4"/><path d="M8.5 20.5h7"/><path d="M10 17h4v3.5h-4z"/></symbol>
+  <symbol id="i-cert" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="m9 13.8-1.8 7 4.8-2.6 4.8 2.6-1.8-7"/><path d="m10 9 1.4 1.4L14.2 7.6"/></symbol>
+  <symbol id="i-about" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="11" r="2.6"/><path d="M5.5 17c.6-1.9 1.9-3 3.5-3s2.9 1.1 3.5 3"/><path d="M14.5 10h4M14.5 13.5h4"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="#top" aria-label="홈으로">Hyewon Kim</a>
+    <nav class="nav" aria-label="섹션">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#activities">Activities</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#awards">Awards</a>
+      <a href="#certificates">Certificates</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ======================= HOME ======================= -->
+<main id="home">
+  <div class="hero wrap" id="top">
+    <div class="capsule">
+<pre class="hexdump" aria-hidden="true">45 56 49 44 45 4E 43 45  EVIDENCE
+2D 4D 41 49 4C 00 00 00  -MAIL...
+73 73 68 64 00 41 63 63  sshd.Acc
+65 70 74 65 64 00 6C 61  epted.la
+62 61 64 6D 69 6E 00 00  badmin..
+4D 61 69 6C 64 69 72 2F  Maildir/
+63 75 72 00 2E 65 6D 6C  cur..eml
+73 77 61 6B 73 00 2D 2D  swaks.--
+44 49 43 4F 4D 00 58 52  DICOM.XR
+41 59 00 4F 72 74 68 61  AY.Ortha
+6E 63 00 53 48 41 32 35  nc.SHA25
+36 00 4F 4B 00 00 00 00  6.OK....</pre>
+      <p class="kicker"><i></i>DIGITAL FORENSICS ANALYST</p>
+      <h1 class="headline" aria-label="흔적을 따라 사실을 증명하는 포렌식 전문가. Hyewon Kim">
+        <span class="ln"><span>흔적을 따라</span></span>
+        <span class="ln key"><span><em>사실을 증명하는</em><span class="sign" aria-hidden="true">Hyewon Kim</span></span></span>
+        <span class="ln"><span>포렌식 전문가.</span></span>
+      </h1>
+      <p class="hero-sub">침해사고의 흔적을 분석해 공격 경로를 밝히는 신입 포렌식 분석가입니다.</p>
+      <div class="links">
+        <a class="btn primary" href="#projects">프로젝트 보기</a>
+        <a class="btn" href="https://github.com/hyetty" target="_blank" rel="noopener">GitHub</a>
+        <button type="button" class="btn" data-copy="khw8438434@gmail.com" id="copy-hero">이메일 복사</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="sec wrap" id="about" aria-labelledby="h-about">
+    <h2 class="sh" id="h-about"><svg class="ico"><use href="#i-about"/></svg>About</h2>
+    <div class="pf">
+      <img class="pf-photo" src="img/profile.jpg" alt="김혜원 증명사진" width="600" height="750">
+      <div class="pf-info">
+        <p class="pf-ko">김혜원</p>
+        <p class="pf-en">Kim Hyewon</p>
+        <dl class="pf-dl">
+          <div><dt>Email</dt><dd><span class="sel">khw8438434@gmail.com</span><button type="button" class="mini" data-copy="khw8438434@gmail.com" id="copy-mail">복사</button></dd></div>
+          <div><dt>Phone</dt><dd><span class="sel">010-6246-8434</span><button type="button" class="mini" data-copy="010-6246-8434" id="copy-phone">복사</button></dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/hyetty" target="_blank" rel="noopener">github.com/hyetty</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="education" aria-labelledby="h-edu">
+    <h2 class="sh" id="h-edu"><svg class="ico"><use href="#i-edu"/></svg>Education</h2>
+    <div class="rows">
+      <div class="row">
+        <h3 class="hlogo"><span class="emblem"><img src="img/ewha.jpg" alt="이화여자대학교 교표" width="160" height="157"></span>이화여자대학교<small>사이버보안전공</small></h3>
+        <span class="when">2021.03 – 2027.02 · 졸업 예정</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="activities" aria-labelledby="h-act">
+    <h2 class="sh" id="h-act"><svg class="ico"><use href="#i-act"/></svg>Activities</h2>
+    <div class="rows">
+      <div class="row">
+        <h3 class="hlogo"><span class="emblem"><img src="img/skshieldus.jpg" alt="SK쉴더스 로고" width="160" height="160"></span>SK Shieldus Rookies 32기<small>클라우드 기반 스마트 융합보안 과정</small></h3>
+        <span class="when">2026.04 – 2026.10</span>
+        <ul>
+          <li>클라우드 인프라(AWS), 웹·네트워크 보안, 보안 관제, 침해사고 분석대응 교육 이수</li>
+          <li>최종 프로젝트로 종합병원 침해사고 시나리오 기반 포렌식 수행</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="skills" aria-labelledby="h-skill">
+    <h2 class="sh" id="h-skill"><svg class="ico"><use href="#i-skill"/></svg>Skills</h2>
+    <div>
+      <div class="srow"><p>Forensics</p><div class="badges">
+        <span class="b" style="--c:#2F6FB0"><i></i><span>FTK Imager</span></span>
+        <span class="b" style="--c:#3E8E5E"><i></i><span>Autopsy</span></span>
+        <span class="b" style="--c:#7A5BB5"><i></i><span>SHA-256 무결성 검증</span></span>
+        <span class="b" style="--c:#C2553A"><i></i><span>Linux 로그 분석</span></span>
+        <span class="b" style="--c:#B0322F"><i></i><span>MITRE ATT&amp;CK</span></span>
+      </div></div>
+      <div class="srow"><p>Infra · 환경 구축</p><div class="badges">
+        <span class="b" style="--c:#1E6FBF"><i></i><span>VirtualBox</span></span>
+        <span class="b" style="--c:#DD5A24"><i></i><span>Ubuntu</span></span>
+        <span class="b" style="--c:#2C8C9C"><i></i><span>Orthanc PACS · DICOM</span></span>
+        <span class="b" style="--c:#2D5B9A"><i></i><span>pfSense</span></span>
+        <span class="b" style="--c:#E39A1F"><i></i><span>AWS</span></span>
+        <span class="b" style="--c:#2496ED"><i></i><span>Docker</span></span>
+      </div></div>
+      <div class="srow"><p>Security Ops</p><div class="badges">
+        <span class="b" style="--c:#5B9E2D"><i></i><span>Splunk</span></span>
+        <span class="b" style="--c:#E0662F"><i></i><span>Suricata</span></span>
+        <span class="b" style="--c:#C23B3B"><i></i><span>ModSecurity</span></span>
+        <span class="b" style="--c:#E3762B"><i></i><span>Burp Suite</span></span>
+      </div></div>
+      <div class="srow"><p>AI · Vision</p><div class="badges">
+        <span class="b" style="--c:#3772A4"><i></i><span>Python</span></span>
+        <span class="b" style="--c:#1D74D6"><i></i><span>YOLOv8</span></span>
+        <span class="b" style="--c:#0E9A8A"><i></i><span>MediaPipe Pose</span></span>
+        <span class="b" style="--c:#4CA43A"><i></i><span>OpenCV</span></span>
+      </div></div>
+      <div class="srow"><p>Automation · Content</p><div class="badges">
+        <span class="b" style="--c:#2EAD33"><i></i><span>Playwright</span></span>
+        <span class="b" style="--c:#E0532B"><i></i><span>HTML · CSS</span></span>
+        <span class="b" style="--c:#8A5CD0"><i></i><span>생성형 AI</span></span>
+        <span class="b" style="--c:#C4452B"><i></i><span>PowerPoint</span></span>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="projects" aria-labelledby="h-proj">
+    <h2 class="sh" id="h-proj"><svg class="ico"><use href="#i-proj"/></svg>Projects</h2>
+    <div class="grid">
+      <a class="card" href="#forensic">
+        <div class="thumb"><img src="img/forensic-thumb.jpg" alt="종합병원 침해사고 시나리오 기반 포렌식 프로젝트 발표 표지"><span class="tag edu">교육과정</span></div>
+        <div class="card-body">
+          <span class="period">2026.04 – 2026.10</span>
+          <h3>종합병원 침해사고 시나리오 기반 포렌식 프로젝트</h3>
+          <p class="sum">가상 종합병원을 구축해 스피어피싱부터 AD 장악, 환자정보 유출, 랜섬웨어까지 이어지는 침해사고를 재현하고, 디스크·메모리·로그 아티팩트로 공격 경로를 분석했습니다.</p>
+          <p class="role"><svg class="ico"><use href="#i-user"/></svg>메일서버 분석 · X-ray 모달리티 구축 · 발표자료 제작 및 발표</p>
+          <p class="win"><svg class="ico"><use href="#i-award"/></svg>최종 평가 5개 팀 중 2위</p>
+          <div class="badges chipb"><span class="b" style="--c:#2F6FB0"><i></i><span>FTK Imager</span></span><span class="b" style="--c:#3E8E5E"><i></i><span>Autopsy</span></span><span class="b" style="--c:#C2553A"><i></i><span>Linux Logs</span></span><span class="b" style="--c:#2C8C9C"><i></i><span>DICOM</span></span><span class="b" style="--c:#B0322F"><i></i><span>ATT&amp;CK</span></span></div>
+        </div>
+      </a>
+      <a class="card" href="#homecam">
+        <div class="thumb"><img src="img/homecam-thumb.jpg" alt="신체 마스킹 4단계: 임베딩 추출, 신체-얼굴 연동, 노출도 판단, 마스킹 적용"><span class="tag school">학교</span></div>
+        <div class="card-body">
+          <span class="period">2024.09 – 2025.06</span>
+          <h3>스마트 홈캠 마스킹 서비스</h3>
+          <p class="sum">등록된 사용자의 얼굴과 노출된 신체를 실시간으로 마스킹한 뒤 저장해, 홈캠 영상이 유출돼도 사생활이 드러나지 않게 하는 서비스입니다. 이화여대 졸업 프로젝트로 캡스톤디자인 은상을 받았습니다.</p>
+          <p class="role"><svg class="ico"><use href="#i-user"/></svg>4인 팀 · AI 신체 노출 판단 및 마스킹</p>
+          <p class="win"><svg class="ico"><use href="#i-award"/></svg>2025 캡스톤디자인 경진대회 은상</p>
+          <div class="badges chipb"><span class="b" style="--c:#3772A4"><i></i><span>Python</span></span><span class="b" style="--c:#1D74D6"><i></i><span>YOLOv8</span></span><span class="b" style="--c:#0E9A8A"><i></i><span>MediaPipe</span></span><span class="b" style="--c:#4CA43A"><i></i><span>OpenCV</span></span></div>
+        </div>
+      </a>
+      <a class="card" href="#cardnews">
+        <div class="thumb"><img src="img/cardnews-thumb.jpg" alt="인스타그램에 올린 보안 뉴스 카드뉴스"><span class="tag me">개인</span></div>
+        <div class="card-body">
+          <span class="period">2026.06 – 2026.08</span>
+          <h3>Daily Security Brief: 보안 뉴스 카드뉴스 자동화</h3>
+          <p class="sum">하루 1개의 보안 이슈를 6장짜리 카드뉴스로 정리해 인스타그램에 올리고, 관련 보안 개념은 티스토리에 공부해 기록했습니다. 이후 Claude와 연동해 매일 오후 6시 자동 게시로 바꿨습니다.</p>
+          <p class="role"><svg class="ico"><use href="#i-user"/></svg>개인 · 기획, 디자인, 자동화 전 과정</p>
+          <div class="badges chipb"><span class="b" style="--c:#D97757"><i></i><span>Claude</span></span><span class="b" style="--c:#2EAD33"><i></i><span>Playwright</span></span><span class="b" style="--c:#E0532B"><i></i><span>HTML/CSS</span></span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="awards" aria-labelledby="h-award">
+    <h2 class="sh" id="h-award"><svg class="ico"><use href="#i-award"/></svg>Awards</h2>
+    <div class="rows">
+      <div class="row">
+        <h3>2025 캡스톤디자인 경진대회 은상</h3>
+        <span class="when">2025</span>
+        <p class="desc">이화여자대학교 주관 · 스마트 홈캠 마스킹 서비스</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="certificates" aria-labelledby="h-cert">
+    <h2 class="sh" id="h-cert"><svg class="ico"><use href="#i-cert"/></svg>Certificates</h2>
+    <div class="rows">
+      <div class="row"><h3>TOEIC Speaking<small>ETS</small></h3><span class="v">IH · 140</span></div>
+      <div class="row"><h3>JLPT<small>일본어능력시험</small></h3><span class="v">N3</span></div>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= DETAIL ======================= -->
+<div class="detail" id="detail" hidden>
+  <aside class="side" aria-label="프로필과 프로젝트 목록">
+    <div class="prof">
+      <span class="nm">Hyewon Kim</span>
+      <p>김혜원 · 신입 포렌식 분석가<br>이화여자대학교 사이버보안전공</p>
+    </div>
+    <div>
+      <h6>Projects</h6>
+      <nav class="plist">
+        <a href="#forensic" data-p="forensic"><span>종합병원 포렌식</span><span>EDU</span></a>
+        <a href="#homecam" data-p="homecam"><span>홈캠 마스킹</span><span>SCHOOL</span></a>
+        <a href="#cardnews" data-p="cardnews"><span>Daily Security Brief</span><span>SOLO</span></a>
+      </nav>
+    </div>
+    <a class="back" href="#projects"><svg class="ico"><use href="#i-back"/></svg>포트폴리오 홈</a>
+  </aside>
+
+  <div>
+  <!-- ---------- FORENSIC ---------- -->
+  <article class="post" id="p-forensic" data-post="forensic" hidden>
+    <p class="crumb"><a href="#projects">Portfolio</a><span>/</span><span>Projects</span></p>
+    <header class="post-head">
+      <span class="tag edu">교육과정</span>
+      <h1>종합병원 침해사고 시나리오 기반 포렌식 프로젝트</h1>
+      <p class="lede">가상 종합병원을 직접 구축해 표적형 침해사고를 재현하고, 디스크·메모리·로그 아티팩트로 공격의 전 과정을 시간 순으로 복원했습니다.</p>
+      <p class="pmeta"><span><b>기간</b> 2026.04 – 2026.10</span><span><b>소속</b> SK Shieldus Rookies 32nd</span><span><b>팀</b> ART IN FACTS 10명</span><span><b>역할</b> 메일서버 분석 · X-ray 구축 · 발표자료 제작 및 발표</span><span><b>성과</b> 5개 팀 중 2위</span></p>
+      <div class="badges chipb"><span class="b" style="--c:#2F6FB0"><i></i><span>FTK Imager</span></span><span class="b" style="--c:#3E8E5E"><i></i><span>Autopsy</span></span><span class="b" style="--c:#C2553A"><i></i><span>sshd</span></span><span class="b" style="--c:#A8432C"><i></i><span>auditd</span></span><span class="b" style="--c:#B5642C"><i></i><span>Postfix</span></span><span class="b" style="--c:#1E6FBF"><i></i><span>VirtualBox</span></span><span class="b" style="--c:#2C8C9C"><i></i><span>Orthanc</span></span><span class="b" style="--c:#2C8C9C"><i></i><span>DICOM</span></span><span class="b" style="--c:#B0322F"><i></i><span>MITRE ATT&amp;CK</span></span></div>
+    </header>
+
+    <h2 id="f-overview">개요</h2>
+    <p>국내외 병원을 노린 랜섬웨어가 늘어나는 흐름에 맞춰, 의료기관 환경을 기반으로 침해사고를 재현하고 포렌식 분석까지 전 과정을 수행한 프로젝트입니다. 공격자는 다크웹에서 병원 정보를 사들인 뒤 스피어피싱과 웹서버 취약점으로 내부에 들어와 AD를 장악했고, 환자정보와 의료영상을 빼낸 다음 랜섬웨어를 배포했습니다.</p>
+    <p>팀은 이 시나리오를 직접 구현한 뒤, 분석관 역할을 나눠 시스템별로 증거를 수집·분석했습니다.</p>
+    <ul class="olist">
+      <li>95쪽 분량의 <strong>침해사고 분석 보고서</strong>를 작성했습니다 (<a href="https://docs.google.com/document/d/1lfGmvKOlHOqCts2jI3Tay5FcHfIPBc6C/edit?usp=sharing" target="_blank" rel="noopener">최종 보고서</a>).</li>
+      <li>최종 평가에서 <strong>5개 팀 중 2위</strong>를 기록했습니다.</li>
+      <li>154장 발표자료를 제작해 최종 발표를 맡았고, 현업 멘토의 기술 검토를 받았습니다.</li>
+    </ul>
+    <div class="stats">
+      <div class="stat"><b>17대</b><span>병원망 실구축 자산</span></div>
+      <div class="stat win"><b>2위</b><span>최종 평가 · 5개 팀 중</span></div>
+      <div class="stat"><b>95쪽</b><span>침해사고 분석 보고서</span></div>
+      <div class="stat"><b>154장</b><span>최종 발표자료</span></div>
+    </div>
+
+    <h2 id="f-scenario">침해사고 시나리오</h2>
+    <p>AIF 종합병원(공개 도메인 aif.org, 내부 AD 도메인 hospital.local)을 표적으로 한 공격 흐름입니다. 붉게 표시한 구간이 제가 분석한 메일서버입니다.</p>
+    <ol class="flow">
+      <li><span class="d">09-06</span><span>다크웹에서 AIF 병원 구성도·메일서버 접근 정보 구매</span></li>
+      <li><span class="d">09-07</span><span>행정 PC 1차 스피어피싱(무료 접종 안내 위장, <code>update.exe</code>). 장악은 성공했지만 AD 횡이동은 내부 방화벽에 막힘</span></li>
+      <li><span class="d">09-11</span><span>DMZ 웹서버 파일 업로드 취약점으로 웹쉘 업로드, PrintSpoofer로 SYSTEM 권한 상승, mimikatz로 자격증명 탈취</span></li>
+      <li class="me"><span class="d">09-14</span><span>웹서버를 거쳐 메일서버에 SSH 침투, 관리자 메일 양식을 훔쳐 정보보안팀을 사칭한 2차 스피어피싱 발송 <span class="mine">MY PART</span></span></li>
+      <li><span class="d">09-14~</span><span>관리자 PC 장악(UAC 우회, 백도어 계정 <code>ops</code>), 저장된 계정 파일과 CrackMapExec로 AD 도메인 관리자 탈취</span></li>
+      <li><span class="d">이후</span><span>AD를 거점으로 의사 PC·협력업체 PC로 이동해 포털/DB 환자정보와 PACS 의료영상 약 130GB를 SoftEther VPN으로 반출</span></li>
+      <li><span class="d">10-01</span><span>백업서버 파괴, GPO를 이용해 서버망·행정망·PACS에 랜섬웨어 배포</span></li>
+    </ol>
+    <figure><img src="img/forensic-story.jpg" alt="침해사고 경위: 진료 업무 차질, 협박금 지불, 복호화 키 제공, 분석 의뢰"><figcaption>침해사고 경위: CT 영상 장애 신고에서 분석 의뢰까지</figcaption></figure>
+    <figure><img src="img/f-interview.jpg" alt="담당자 인터뷰 기반 사건 발생 시점 및 피해 범위 파악"><figcaption>담당자 인터뷰로 최초 인지 시점과 피해 범위 파악</figcaption></figure>
+
+    <h2 id="f-env">구축 환경</h2>
+    <p>행정망·서버망·DMZ·의료장비망 등 141대 규모로 병원망을 설계하고, 그중 시나리오에 필요한 17대(서버 7, PC 4, 의료장비 3, 공격자 2, 가상 방화벽 1)를 VirtualBox에 실제로 구축했습니다. 구간 사이는 pfSense로 라우팅·필터링했습니다.</p>
+    <figure><img src="img/f-network.jpg" alt="병원망 시스템 구조도"><figcaption>시스템 구조도 (DMZ 6대 · 서버망 22대 · 행정망 78대 · 장비망 40대)</figcaption></figure>
+    <div class="tbl"><table>
+      <thead><tr><th>세그먼트</th><th>대역</th><th>주요 호스트</th></tr></thead>
+      <tbody>
+        <tr><td>NET10 행정망</td><td class="m">192.168.10.0/24</td><td>행정 PC, 의사 PC, 관리자 PC, 협력업체 PC</td></tr>
+        <tr><td>NET20 서버망</td><td class="m">192.168.20.0/24</td><td>AD(Samba AD DC), WAS, 포털(IIS+MSSQL), HIS</td></tr>
+        <tr><td>NET30 DMZ</td><td class="m">192.168.30.0/24</td><td>웹서버(IIS), 메일서버(Postfix/Dovecot)</td></tr>
+        <tr class="hl"><td>NET40 의료장비망(OT)</td><td class="m">192.168.40.0/24</td><td><strong>X-ray 모달리티</strong>, CT 모달리티, PACS(Orthanc)</td></tr>
+        <tr><td>NET50 관리망</td><td class="m">192.168.50.0/24</td><td>Splunk SIEM</td></tr>
+        <tr><td>EXT 공격자 · C2</td><td class="m">192.168.80–90.x</td><td>Kali Linux, C2 서버</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="f-method">분석 절차와 도구</h2>
+    <p>수집, 보존, 분석, 검증, 보고의 5단계 표준 절차를 따랐습니다. 휘발성이 높은 메모리부터 수집하고, VM을 끈 상태에서 원본 가상디스크를 raw(dd)로 복제한 뒤 SHA-256 해시를 남겼습니다. 분석은 읽기 전용 사본으로만 진행했습니다.</p>
+    <figure><img src="img/f-procedure.jpg" alt="분석 절차와 데이터 수집 고려사항"><figcaption>분석 절차 및 주안점</figcaption></figure>
+    <div class="tbl"><table>
+      <thead><tr><th>단계</th><th>수행 내용</th></tr></thead>
+      <tbody>
+        <tr><td>수집</td><td>물리 메모리(VBox 코어 덤프, ELF)부터 디스크 이미지 순으로 수집</td></tr>
+        <tr><td>보존</td><td>원본 비변경 복제(<code>VBoxManage clonemedium --format RAW</code>), SHA-256 산출·봉인, Chain of Custody 기록</td></tr>
+        <tr><td>분석</td><td>타임라인을 축으로 메모리·MFT·레지스트리·이벤트 로그·네트워크 상관분석</td></tr>
+        <tr><td>검증</td><td>FTK Imager·Autopsy·Volatility·Splunk 교차 검증, 수집/분석 시점 해시 대조</td></tr>
+        <tr><td>보고</td><td>사실관계 기반 최종 보고서와 MITRE ATT&amp;CK 매핑, 대응 로드맵 작성</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="f-role">담당 역할</h2>
+
+    <h3 id="f-mail">1. 메일서버 분석 <span class="mine">EV-MAIL</span></h3>
+    <p>DMZ에 있는 Debian 기반 Postfix/Dovecot 메일서버(192.168.30.20)를 맡았습니다. FTK Imager로 디스크 이미지(raw 256GB)를 검증하고 Autopsy로 분석해, 웹서버에서 시작된 침투가 관리자 PC로 넘어가는 <strong>중간 연결고리</strong>를 증거로 확정했습니다.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>시각(KST)</th><th>아티팩트</th><th>확인한 행위</th><th>ATT&amp;CK</th></tr></thead>
+      <tbody>
+        <tr><td class="m">09-07 09:10</td><td>Postfix 로그 · .eml</td><td>공격자(192.168.90.100)가 '경영지원팀'을 사칭해 행정 PC로 보낸 1차 피싱 메일 수신 기록. 첨부 <code>사전예약.exe</code>, X-Mailer swaks</td><td class="m">T1566.001</td></tr>
+        <tr><td class="m">09-09 16:31</td><td>auditd EXECVE</td><td><code>scp</code>로 <code>/home/admin/Maildir/cur/*</code> 메일 원문을 공격 서버로 반출, 사내 메일 양식 확보</td><td class="m">T1114</td></tr>
+        <tr><td class="m">09-14 03:13</td><td>sshd 로그</td><td>웹서버(192.168.30.11)에서 <code>labadmin</code> 계정으로 SSH 비밀번호 인증 성공</td><td class="m">T1021.004</td></tr>
+        <tr><td class="m">09-14 03:13~</td><td>sshd 로그</td><td>root 계정 대상 무차별 대입, 모두 실패</td><td class="m">T1110.001</td></tr>
+        <tr><td class="m">09-14 09:22</td><td>셸 히스토리</td><td><code>sec_update.exe</code>를 받아 swaks로 관리자에게 '[공지] 긴급 보안 패치 설치 권고' 메일 발송</td><td class="m">T1566.001</td></tr>
+        <tr><td class="m">09-14 09:52</td><td>.eml 원문</td><td>From 정보보안팀 &lt;security@aif.org&gt;, To manager, 첨부 <code>sec_update.exe</code></td><td class="m">T1566.001</td></tr>
+      </tbody>
+    </table></div>
+    <figure><img src="img/ev-ssh.jpg" alt="메일 서버 SSH 접근 로그 분석 슬라이드"><figcaption>sshd: 웹서버(192.168.30.11)발 labadmin 로그인 성공, root 대입 실패</figcaption></figure>
+    <figure><img src="img/ev-execve.jpg" alt="메일 원문 디렉토리 반출 EXECVE 로그 슬라이드"><figcaption>auditd: Maildir 메일 원문을 scp로 공격 서버에 반출</figcaption></figure>
+    <figure><img src="img/ev-phish2.jpg" alt="관리자 PC 대상 피싱 메일 발송 명령 분석 슬라이드"><figcaption>셸 히스토리: 정보보안팀을 사칭한 2차 피싱 메일 발송</figcaption></figure>
+    <figure><img src="img/ev-phish1.jpg" alt="메일 서버 추가 분석: 1차 피싱 메일 원문"><figcaption>추가 분석: 메일서버에 남은 1차 피싱 메일 원문 (수신 IP 192.168.10.101, 첨부 사전예약.exe)</figcaption></figure>
+    <div class="callout"><b>해석</b> 공격자는 웹서버를 발판으로 메일서버에 들어와 실제 사내 메일 양식을 확보한 뒤, 정보보안팀을 사칭해 관리자 PC를 겨냥했습니다. 메일서버 증거가 '웹서버 → 메일서버 → 관리자 PC'로 이어지는 2차 침투 경로를 연결해 줍니다.</div>
+
+    <h3 id="f-xray">2. 의료장비망 X-ray 모달리티 구축</h3>
+    <p>의료장비망(NET40)에 X-ray 모달리티 VM(Ubuntu, 192.168.40.11)을 만들고, Orthanc PACS(192.168.40.60)로 DICOM 영상이 전송되도록 연동했습니다. 시나리오 후반의 PACS 의료영상 유출이 실제 영상 데이터 위에서 일어나도록 만든 기반 작업입니다.</p>
+
+    <h3 id="f-hash">3. 증거물 무결성 기준값 산출</h3>
+    <p>행정 PC, 웹서버, 메일서버 증거물의 수집 시점 SHA-256 해시를 <code>certutil -hashfile</code>과 <code>sha256sum</code>으로 산출해 기록했습니다(현장 기록 P-06). 이 값은 분석 시점에 FTK Imager로 다시 계산한 해시와 대조해 원본성을 입증하는 데 쓰였습니다.</p>
+
+    <h3 id="f-present">4. 최종 발표자료 제작 · 발표</h3>
+    <p>154장 분량의 최종 발표자료를 제작하고 발표를 맡았습니다. 포렌식이 남겨진 단서를 따라 사건의 전말을 밝힌다는 점이 영화의 서사와 닮았다는 데서 착안해 '영화 프레임'을 시각 콘셉트로 잡았습니다. 표지는 클래퍼보드, 슬라이드 테두리는 필름으로 꾸미고, 수사팀 롤플레잉과 담당자 인터뷰 장면을 넣어 사건 발생부터 흔적 발견, 분석, 추적까지를 하나의 이야기로 이어지게 구성했습니다.</p>
+    <ul>
+      <li>10명이 나눠 분석한 시스템별 결과를 공통 양식(분석 대상 표시 바, 핵심 문장 콜아웃, 증거 캡처)으로 통일</li>
+      <li>시스템 구조도와 공격 경로를 단계별 애니메이션으로 보여 주어 흐름을 따라가기 쉽게 구성</li>
+    </ul>
+    <figure><img src="img/forensic-thumb.jpg" alt="영화 클래퍼보드 콘셉트의 발표 표지"><figcaption>발표 표지: 클래퍼보드 콘셉트</figcaption></figure>
+    <figure><img src="img/ev-phish2.jpg" alt="필름 프레임과 분석 대상 표시 바가 들어간 분석 슬라이드"><figcaption>분석 슬라이드 양식: 분석 대상 표시 바 · 증거 캡처 · 주석</figcaption></figure>
+
+    <h2 id="f-result">분석 결과와 대응</h2>
+    <p>IoC 기반 스크립트로 피해 범위를 산정한 결과 141대 중 111대(79%)가 피해를 입었고, 환자 개인정보·진료기록과 의료영상 약 130GB가 유출됐습니다.</p>
+    <figure><img src="img/f-results.jpg" alt="시스템 피해 111대, 파일 유출 130GB, 피해 자산 약 587.4억 원"><figcaption>IoC 기반 피해 산정 결과</figcaption></figure>
+    <p>메일서버 구간에 대해서는 다음 대응을 제안했습니다.</p>
+    <ul>
+      <li>SSH root 로그인 차단, 키 기반 인증 전환, 로그인 실패 시 계정 잠금</li>
+      <li>메일 게이트웨이에서 실행파일(.exe) 첨부 차단</li>
+      <li>Postfix 3.4.13 → 3.9.0 업그레이드와 위장 발신 도메인 필터·스팸 차단 적용</li>
+      <li>IoC 등록: 위장 도메인 <code>yourorg.ai</code>, 사칭 주소 <code>wellness@yourorg.ai</code> · <code>security@aif.org</code>, 페이로드 <code>sec_update.exe</code></li>
+    </ul>
+
+    <h2 id="f-retro">회고</h2>
+    <p class="quote">보안을 공부하면 당연히 방어자의 입장에서만 생각하게 됩니다. 이번 프로젝트에서는 공격자가 어떤 기법을 쓸지, 그렇게 숨긴 흔적을 또 어떻게 찾아낼지를 깊이 고민할 수 있어 새로웠고, 이것이 포렌식만의 매력이라는 생각이 들었습니다. 실제로 쓰이는 방법인지 팀원들과 많이 고민하고 멘토님 피드백을 받은 끝에, 디테일까지 현실적인 시나리오를 만들 수 있었습니다.</p>
+
+    <nav class="pager"><span></span><a class="next" href="#homecam"><small>NEXT</small><span>스마트 홈캠 마스킹 서비스</span></a></nav>
+  </article>
+
+  <!-- ---------- HOMECAM ---------- -->
+  <article class="post" id="p-homecam" data-post="homecam" hidden>
+    <p class="crumb"><a href="#projects">Portfolio</a><span>/</span><span>Projects</span></p>
+    <header class="post-head">
+      <span class="tag school">학교</span>
+      <h1>스마트 홈캠 마스킹 서비스</h1>
+      <p class="lede">등록된 사용자의 얼굴과 노출된 신체를 실시간으로 마스킹한 뒤 저장해, 홈캠 영상이 유출되더라도 사생활이 드러나지 않게 하는 서비스입니다.</p>
+      <p class="pmeta"><span><b>기간</b> 2024.09 – 2025.06</span><span><b>소속</b> 이화여대 사이버보안전공 졸업 프로젝트</span><span><b>팀</b> 혜혜솔솔 4명</span><span><b>역할</b> AI 신체 마스킹</span><span><b>성과</b> 캡스톤디자인 은상</span></p>
+      <div class="badges chipb"><span class="b" style="--c:#3772A4"><i></i><span>Python</span></span><span class="b" style="--c:#1D74D6"><i></i><span>YOLOv8</span></span><span class="b" style="--c:#0E9A8A"><i></i><span>MediaPipe Pose</span></span><span class="b" style="--c:#4CA43A"><i></i><span>OpenCV</span></span><span class="b" style="--c:#059487"><i></i><span>FastAPI</span></span><span class="b" style="--c:#0C6B4A"><i></i><span>Django</span></span><span class="b" style="--c:#2496ED"><i></i><span>Docker</span></span></div>
+    </header>
+    <figure class="poster"><img src="img/homecam-poster.jpg" alt="스마트 홈캠 마스킹 서비스 최종 포스터"><figcaption>최종 포스터 · 팀 혜혜솔솔</figcaption></figure>
+
+    <h2 id="h-overview">개요</h2>
+    <p>홈캠 사용이 늘면서 해킹으로 사생활 영상이 유출되는 사고도 함께 늘고 있습니다. 하지만 기존 보안 기술은 대부분 네트워크 전송 구간에 집중되어 있어, 영상 원본이 탈취되면 프라이버시를 지킬 방법이 사실상 없습니다.</p>
+    <p>이 프로젝트는 영상을 서버에 저장하기 전에 등록된 사용자의 얼굴과 노출된 신체를 마스킹해, 원본이 새어 나가도 사생활이 드러나지 않도록 합니다. 2025 이화여자대학교 캡스톤디자인 경진대회에서 <strong>은상</strong>을 받았습니다.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>구분</th><th>기존 서비스</th><th>이 서비스</th></tr></thead>
+      <tbody>
+        <tr><td>방식</td><td>화면의 고정 영역을 가리는 고정형 마스킹</td><td>등록된 사용자를 따라가는 사용자 맞춤형 마스킹</td></tr>
+        <tr><td>한계 / 장점</td><td>사용자가 움직이면 마스킹이 벗어나 실효성이 없음</td><td>움직임에도 정확히 대응해 지속적으로 보호</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="h-feature">핵심 기능</h2>
+    <h3 id="h-face">얼굴 마스킹</h3>
+    <p>사용자가 정면·측면 등 여러 각도로 얼굴을 등록하면 각 이미지의 임베딩 벡터를 평균해 사용자 고유 임베딩으로 저장합니다. 영상 속 얼굴과의 코사인 유사도가 0.7 이상이면 같은 인물로 보고, 네모·블러·이모지 중 사용자가 고른 방식으로 가립니다.</p>
+    <figure><img src="img/h-face.jpg" alt="얼굴 등록, 얼굴 비교, 마스킹 처리 단계"><figcaption>얼굴 마스킹 흐름</figcaption></figure>
+    <h3 id="h-body">신체 마스킹 <span class="mine">MY PART</span></h3>
+    <p>등록된 사용자의 신체가 노출됐는지 판단하고, 노출된 영역만 마스킹합니다. 세부 구현은 아래 '신체 마스킹 파이프라인'에 정리했습니다.</p>
+    <figure><img src="img/h-scenario.jpg" alt="사용자 얼굴 등록, 가족 계정 설정, 이모티콘 설정 화면"><figcaption>사용자 화면: 얼굴 등록 · 가족 계정 · 마스킹 이모티콘 설정</figcaption></figure>
+
+    <h2 id="h-arch">아키텍처</h2>
+    <figure><img src="img/h-arch.jpg" alt="Client, Backend Server, AI Server 구조도"><figcaption>SW 구조도</figcaption></figure>
+    <div class="tbl"><table>
+      <thead><tr><th>영역</th><th>기술</th><th>역할</th></tr></thead>
+      <tbody>
+        <tr><td>Client</td><td>React Native, JavaScript, Vercel</td><td>영상 업로드·스트리밍, 얼굴 등록, 가족·마스킹 설정</td></tr>
+        <tr><td>Backend</td><td>Django REST framework, Nginx, Gunicorn, AWS, Amazon RDS(PostgreSQL)</td><td>사용자·영상 관리, 실시간 스트리밍, AI 서버 요청</td></tr>
+        <tr class="hl"><td>AI Server</td><td>Google Cloud, Docker, FastAPI, OpenCV, RetinaFace, <strong>YOLOv8 · MediaPipe</strong></td><td>얼굴 마스킹(RetinaFace), <strong>신체 마스킹(YOLOv8 · MediaPipe · OpenCV)</strong></td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="h-pipe">신체 마스킹 파이프라인</h2>
+    <p>목표는 두 가지였습니다. 사용자의 노출 여부를 판단하는 것, 그리고 개인 설정에 따라 마스킹을 제공하는 것입니다.</p>
+    <div class="md" id="md" data-step="0">
+      <div class="md-stage">
+        <div class="md-frame">
+          <img src="img/h-body.jpg" alt="신체 마스킹 처리 대상 예시 인물">
+          <div class="md-scan" aria-hidden="true"></div>
+          <svg class="md-svg" viewBox="0 0 360 820" aria-hidden="true">
+            <g class="g1"><rect class="face-hl" x="146" y="78" width="72" height="88" rx="6"/></g>
+            <g class="g2">
+              <rect class="bb body" x="78" y="66" width="214" height="726" pathLength="100"/>
+              <text class="bbt" x="80" y="60">Person 0 BBox</text>
+              <rect class="bb face" x="148" y="82" width="68" height="82" pathLength="100"/>
+              <text class="bbt f" x="220" y="96">Face BBox</text>
+            </g>
+            <g class="g3a"><line x1="125" y1="198" x2="237" y2="198"/><line x1="125" y1="198" x2="112" y2="300"/><line x1="112" y1="300" x2="98" y2="412"/><line x1="237" y1="198" x2="250" y2="300"/><line x1="250" y1="300" x2="264" y2="412"/><line x1="98" y1="412" x2="92" y2="438"/><line x1="98" y1="412" x2="98" y2="442"/><line x1="92" y1="438" x2="98" y2="442"/><line x1="98" y1="412" x2="104" y2="430"/><line x1="264" y1="412" x2="270" y2="438"/><line x1="264" y1="412" x2="264" y2="442"/><line x1="270" y1="438" x2="264" y2="442"/><line x1="264" y1="412" x2="258" y2="430"/><line x1="125" y1="198" x2="150" y2="345"/><line x1="237" y1="198" x2="212" y2="345"/><line x1="150" y1="345" x2="212" y2="345"/><line x1="150" y1="345" x2="158" y2="500"/><line x1="158" y1="500" x2="166" y2="690"/><line x1="166" y1="690" x2="168" y2="745"/><line x1="168" y1="745" x2="160" y2="772"/><line x1="166" y1="690" x2="160" y2="772"/><line x1="212" y1="345" x2="206" y2="500"/><line x1="206" y1="500" x2="200" y2="690"/><line x1="200" y1="690" x2="198" y2="745"/><line x1="198" y1="745" x2="208" y2="772"/><line x1="200" y1="690" x2="208" y2="772"/><line x1="174" y1="145" x2="186" y2="145"/><line x1="180" y1="128" x2="174" y2="118"/><line x1="174" y1="118" x2="170" y2="117"/><line x1="170" y1="117" x2="166" y2="118"/><line x1="166" y1="118" x2="160" y2="124"/><line x1="180" y1="128" x2="186" y2="118"/><line x1="186" y1="118" x2="190" y2="117"/><line x1="190" y1="117" x2="194" y2="118"/><line x1="194" y1="118" x2="200" y2="124"/></g>
+            <g class="g3b"><circle cx="180" cy="128" r="3.2" style="--d:0ms"/><circle cx="174" cy="118" r="3.2" style="--d:45ms"/><circle cx="170" cy="117" r="3.2" style="--d:90ms"/><circle cx="166" cy="118" r="3.2" style="--d:135ms"/><circle cx="186" cy="118" r="3.2" style="--d:180ms"/><circle cx="190" cy="117" r="3.2" style="--d:225ms"/><circle cx="194" cy="118" r="3.2" style="--d:270ms"/><circle cx="160" cy="124" r="3.2" style="--d:315ms"/><circle cx="200" cy="124" r="3.2" style="--d:360ms"/><circle cx="174" cy="145" r="3.2" style="--d:405ms"/><circle cx="186" cy="145" r="3.2" style="--d:450ms"/><circle cx="125" cy="198" r="3.2" style="--d:495ms"/><circle cx="237" cy="198" r="3.2" style="--d:540ms"/><circle cx="112" cy="300" r="3.2" style="--d:585ms"/><circle cx="250" cy="300" r="3.2" style="--d:630ms"/><circle cx="98" cy="412" r="3.2" style="--d:675ms"/><circle cx="264" cy="412" r="3.2" style="--d:720ms"/><circle cx="92" cy="438" r="3.2" style="--d:765ms"/><circle cx="270" cy="438" r="3.2" style="--d:810ms"/><circle cx="98" cy="442" r="3.2" style="--d:855ms"/><circle cx="264" cy="442" r="3.2" style="--d:900ms"/><circle cx="104" cy="430" r="3.2" style="--d:945ms"/><circle cx="258" cy="430" r="3.2" style="--d:990ms"/><circle cx="150" cy="345" r="3.2" style="--d:1035ms"/><circle cx="212" cy="345" r="3.2" style="--d:1080ms"/><circle cx="158" cy="500" r="3.2" style="--d:1125ms"/><circle cx="206" cy="500" r="3.2" style="--d:1170ms"/><circle cx="166" cy="690" r="3.2" style="--d:1215ms"/><circle cx="200" cy="690" r="3.2" style="--d:1260ms"/><circle cx="168" cy="745" r="3.2" style="--d:1305ms"/><circle cx="198" cy="745" r="3.2" style="--d:1350ms"/><circle cx="160" cy="772" r="3.2" style="--d:1395ms"/><circle cx="208" cy="772" r="3.2" style="--d:1440ms"/></g>
+            <g class="g3c"><circle class="ex" cx="180" cy="180" r="16" style="--d:0ms"/><circle class="cv" cx="147" cy="248" r="16" style="--d:110ms"/><circle class="ex" cx="180" cy="243" r="16" style="--d:220ms"/><circle class="cv" cx="212" cy="250" r="16" style="--d:330ms"/><circle class="ex" cx="147" cy="276" r="16" style="--d:440ms"/><circle class="ex" cx="180" cy="268" r="16" style="--d:550ms"/><circle class="ex" cx="212" cy="276" r="16" style="--d:660ms"/><circle class="cv" cx="180" cy="337" r="16" style="--d:770ms"/><circle class="cv" cx="143" cy="380" r="16" style="--d:880ms"/><circle class="cv" cx="180" cy="380" r="16" style="--d:990ms"/><circle class="cv" cx="215" cy="380" r="16" style="--d:1100ms"/><circle class="cv" cx="147" cy="420" r="16" style="--d:1210ms"/><circle class="cv" cx="212" cy="420" r="16" style="--d:1320ms"/></g>
+          </svg>
+          <div class="md-emb" aria-hidden="true"><b>face embedding</b><span>[ 0.12, −0.48, 0.33, 0.07, … ]</span><em>cos ≥ 0.7 → 등록 사용자</em></div>
+          <div class="md-match" aria-hidden="true">Face ⊂ Body → 같은 인물</div>
+          <div class="md-mask" aria-hidden="true"><span>BLUR</span></div>
+        </div>
+        <div class="md-read" aria-live="polite">
+          <span class="r-up">상체 7개 중 <b>5개</b> 노출 → <b>상체 마스킹</b></span>
+          <span class="r-dn">하체 6개 중 <b>0개</b> 노출 → 유지</span>
+        </div>
+        <button type="button" class="md-play" id="md-play">▶ 처음부터 재생</button>
+      </div>
+      <ol class="md-steps">
+        <li data-s="1"><button type="button"><span class="n">01</span><span class="t"><b>얼굴 임베딩 추출</b>등록된 사용자인지 얼굴 임베딩을 뽑아 비교합니다. 코사인 유사도 0.7 이상이면 같은 사람으로 봅니다.</span></button><i class="bar"></i></li>
+        <li data-s="2"><button type="button"><span class="n">02</span><span class="t"><b>신체 · 얼굴 BBOX 연동</b>YOLOv8로 신체 BBOX를 잡고, 얼굴 BBOX가 그 안에 완전히 들어오면 같은 인물로 연결합니다.</span></button><i class="bar"></i></li>
+        <li data-s="3"><button type="button"><span class="n">03</span><span class="t"><b>랜드마크 · 노출도 판단</b>MediaPipe Pose 33개 관절에 민감 부위 13개(상체 7 · 하체 6)를 더하고, 각 점을 중심으로 그린 원 안 픽셀의 50% 이상이 피부색이면 노출로 판단합니다.</span></button><i class="bar"></i></li>
+        <li data-s="4"><button type="button"><span class="n">04</span><span class="t"><b>마스킹 적용</b>상체나 하체에서 한 곳이라도 노출되면 그 영역 전체를 블러 박스로 가립니다.</span></button><i class="bar"></i></li>
+      </ol>
+    </div>
+    <p class="md-legend"><span class="k ex"></span>노출(피부 ≥ 50%) <span class="k cv"></span>가려짐(피부 &lt; 50%) <span class="k lm"></span>MediaPipe 33개 관절</p>
+    <figure><img src="img/homecam-result.jpg" alt="원본 영상과 마스킹 결과 비교"><figcaption>실제 영상 적용 결과: 얼굴을 등록한 인물만 얼굴·상체 마스킹, 미등록 인물은 그대로 유지</figcaption></figure>
+    <div class="callout"><b>구현 결과</b> 특정 인물의 얼굴을 등록해 둔 상태로 영상을 처리하면, 그 인물의 상체 노출이 감지되어 마스킹이 적용됩니다. 얼굴을 등록하지 않은 주변 인물에게는 얼굴·신체 마스킹이 적용되지 않습니다.</div>
+
+    <h2 id="h-role">담당 역할</h2>
+    <ul>
+      <li>AI 서버의 신체 노출 판단 및 마스킹 모듈 설계·구현</li>
+      <li>YOLOv8 신체 BBOX와 얼굴 BBOX를 연결하는 인물 매칭 로직 구현</li>
+      <li>MediaPipe Pose 기반 민감 부위 랜드마크 13개 확장, 피부색 비율 기반 노출 판단 기준 설정</li>
+      <li>상체·하체 단위 마스킹 적용 및 다인 프레임 결과 검증</li>
+    </ul>
+
+    <nav class="pager"><a href="#forensic"><small>PREV</small><span>종합병원 침해사고 포렌식 프로젝트</span></a><a class="next" href="#cardnews"><small>NEXT</small><span>Daily Security Brief</span></a></nav>
+  </article>
+
+  <!-- ---------- CARDNEWS ---------- -->
+  <article class="post" id="p-cardnews" data-post="cardnews" hidden>
+    <p class="crumb"><a href="#projects">Portfolio</a><span>/</span><span>Projects</span></p>
+    <header class="post-head">
+      <span class="tag me">개인</span>
+      <h1>Daily Security Brief: 보안 뉴스 카드뉴스 자동화</h1>
+      <p class="lede">하루 1개의 보안 이슈를 카드뉴스로 정리해 인스타그램에 올리고, 기사를 이해하는 데 필요한 보안 개념은 티스토리에 따로 공부해 기록했습니다. 나중에는 Claude와 연동해 이 과정을 매일 자동으로 돌아가게 바꿨습니다.</p>
+      <p class="pmeta"><span><b>기간</b> 2026.06 – 2026.08</span><span><b>형태</b> 개인 프로젝트</span><span><b>채널</b> <a href="https://www.instagram.com/hye.bugi/" target="_blank" rel="noopener">Instagram @hye.bugi</a> · <a href="https://mikumikunishiteageru.tistory.com/category/%ED%85%8C%ED%81%AC%ED%86%A0%ED%81%AC" target="_blank" rel="noopener">Tistory 테크토크</a></span></p>
+      <div class="badges chipb"><span class="b" style="--c:#D97757"><i></i><span>Claude</span></span><span class="b" style="--c:#2EAD33"><i></i><span>Playwright</span></span><span class="b" style="--c:#E0532B"><i></i><span>HTML/CSS</span></span></div>
+    </header>
+
+    <h2 id="c-overview">개요</h2>
+    <p>SK쉴더스 루키즈 과정에서 "보안 뉴스를 자주 찾아보라"는 이야기를 듣고 시작한 활동입니다. 기사를 읽고 지나가기만 하면 남는 게 적어서, 하루에 한 건씩 골라 6장짜리 카드뉴스로 요약하고 인스타그램에 기록하기로 했습니다. 기사에 나온 개념 중 모르는 것은 티스토리에 따로 공부해 정리했습니다.</p>
+
+    <h2 id="c-insta">Instagram</h2>
+    <p>실제로 운영 중인 계정 화면입니다. 게시물을 누르면 함께 올린 캡션 원문과 인스타그램·티스토리 링크를 볼 수 있습니다.</p>
+    <div class="phone-wrap">
+      <div class="phone" aria-label="인스타그램 프로필 화면 미리보기">
+        <div class="screen">
+          <div class="sbar"><span>SKT 19:19</span><span class="sb-r"><i></i><i></i><b>84</b></span></div>
+          <div class="ig-scroll" id="ig-scroll">
+            <div class="ig-top">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+              <a class="ig-user" href="https://www.instagram.com/hye.bugi/" target="_blank" rel="noopener">hye.bugi<svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></a>
+              <span class="ig-icons"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M15.5 10c-.5-2-3-2.6-4.4-1.5-1.5 1.2-1.3 4.4.6 5.1 1.8.7 3.6-.3 3.6-2.2 0-1.6-1.6-2.4-3.2-1.9"/></svg><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>
+            </div>
+            <div class="ig-prof">
+              <div class="ig-ava" aria-hidden="true">🍔</div>
+              <div class="ig-stats">
+                <p class="ig-name">대외활동 🍔</p>
+                <div><span><b>13</b>게시물</span><span><b>1,571</b>팔로워</span><span><b>1,663</b>팔로잉</span></div>
+              </div>
+            </div>
+            <div class="ig-bio">
+              <p>🔒 cyber security</p>
+              <p class="ig-link">🔗 <a href="https://hyebugi.carrd.co" target="_blank" rel="noopener">hyebugi.carrd.co</a></p>
+            </div>
+            <div class="ig-btns"><span class="ig-follow">팔로우</span><span>메시지</span></div>
+            <div class="ig-tabs"><span class="on"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M9.3 4v16M14.7 4v16M4 9.3h16M4 14.7h16"/></svg></span><span><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m10 9 5 3-5 3z"/></svg></span><span><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="10.5" r="2.6"/><path d="M7.5 19c.8-2.4 2.4-3.6 4.5-3.6s3.7 1.2 4.5 3.6"/></svg></span></div>
+            <div class="ig-grid" id="ig-grid"></div>
+          </div>
+          <div class="ig-post" id="ig-post" hidden>
+            <div class="ig-ph"><button type="button" id="ig-back" aria-label="뒤로"><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></button><span>게시물</span></div>
+            <div class="ig-pscroll">
+              <div class="ig-urow"><span class="ig-ava sm" aria-hidden="true">🍔</span><a href="https://www.instagram.com/hye.bugi/" target="_blank" rel="noopener"><b>hye.bugi</b></a></div>
+              <div class="ig-img"><img id="ig-pimg" alt=""></div>
+              <div class="ig-dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="ig-acts"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.2A8 8 0 1 1 20 11.5z"/></svg><svg viewBox="0 0 24 24"><path d="m21 4-9.5 9.5M21 4l-6 17-3.5-7.5L4 10z"/></svg><svg class="r" viewBox="0 0 24 24"><path d="M6 4h12v16l-6-4-6 4z"/></svg></div>
+              <div class="ig-cap"><a href="https://www.instagram.com/hye.bugi/" target="_blank" rel="noopener"><b>hye.bugi</b></a> <span id="ig-ptext"></span></div>
+              <p class="ig-date" id="ig-pdate"></p>
+              <p class="ig-links" id="ig-links"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="phone-hint">게시물을 눌러 캡션을 확인해 보세요</p>
+    </div>
+
+    <h2 id="c-evolve">운영 방식의 변화</h2>
+    <p>처음에는 세 단계를 하나씩 손으로 진행했습니다. 매일 반복하다 보니 생각보다 번거로워서, 한 번에 실행할 방법이 없을까 고민한 끝에 Claude와 연동한 자동화로 바꿨습니다.</p>
+    <div class="evo">
+      <div class="evo-col">
+        <p class="evo-k">v1 · 수동 운영</p>
+        <ol class="plain">
+          <li>기사를 골라 카드뉴스 6장 제작·발행</li>
+          <li>인스타그램 캡션 작성</li>
+          <li>기사에 나온 개념을 공부해 티스토리에 정리</li>
+        </ol>
+      </div>
+      <div class="evo-arrow" aria-hidden="true">→</div>
+      <div class="evo-col on">
+        <p class="evo-k">v2 · Claude 자동화 <span>매일 18:00 KST</span></p>
+        <ol class="plain">
+          <li>데일리시큐 테크토크 게시판에서 당일 기사 1건 선정 (새 기사가 없으면 전날 기사)</li>
+          <li>카드뉴스 6장과 캡션 제작 후 인스타그램 자동 게시</li>
+          <li>기사를 이해하는 데 필요한 보안 개념을 정리해 티스토리 '테크토크'에 자동 포스팅</li>
+        </ol>
+        <p class="evo-note">티스토리 발행 시 나오는 캡차만 직접 처리합니다.</p>
+      </div>
+    </div>
+
+    <h2 id="c-format">콘텐츠 구성</h2>
+    <h3 id="c-card">카드뉴스 6장</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>순서</th><th>카드</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td class="m">01</td><td>표지</td><td>날짜, 한 줄 훅, 헤드라인과 강조 키워드</td></tr>
+        <tr><td class="m">02</td><td>사건 개요</td><td>무슨 일이 있었는지 핵심 정리</td></tr>
+        <tr><td class="m">03</td><td>핵심 위협 · 쟁점</td><td>공격 기법, 원인, 쟁점</td></tr>
+        <tr><td class="m">04</td><td>패러다임 변화</td><td>이전과 달라진 점을 비교</td></tr>
+        <tr><td class="m">05</td><td>대응 · 거버넌스</td><td>기업과 기관의 대응 방안</td></tr>
+        <tr><td class="m">06</td><td>에필로그</td><td>시사점과 해시태그</td></tr>
+      </tbody>
+    </table></div>
+    <h3 id="c-caption">캡션</h3>
+    <p>훅 문장 → 핵심 요약 → 이 사건이 중요한 이유 → 실천 체크리스트 → 마무리 문장 → 해시태그 순으로 씁니다.</p>
+    <h2 id="c-posts" class="rp-h">티스토리 최근 글<a href="https://mikumikunishiteageru.tistory.com/category/%ED%85%8C%ED%81%AC%ED%86%A0%ED%81%AC" target="_blank" rel="noopener">블로그 ↗</a></h2>
+    <p>기사 한 건마다 보안 개념 4개를 골라 정의부터 대응 방법까지 7가지 관점으로 정리합니다.</p>
+    <div class="rps">
+      <a class="rp" href="https://mikumikunishiteageru.tistory.com/35" target="_blank" rel="noopener">
+        <span class="rp-tags"><span class="rp-cat">테크토크</span><span class="rp-topic">개인정보 유출</span></span>
+        <b class="rp-t">1026 - 아마데우스 예약정보 유출</b>
+        <span class="rp-d">항공사 내부가 아닌 외부 수탁사 계정으로 예약정보가 새어 나간 사건을 보며 수탁사(제3자) 보안 리스크와 인증정보 기반 비인가 접근을 정리했습니다.</span>
+        <span class="rp-meta"><span class="rp-date"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>2026.10.26</span><span>#Third-Party Risk</span><span>#Credential</span><span>#수탁사</span></span>
+      </a>
+      <a class="rp" href="https://mikumikunishiteageru.tistory.com/13" target="_blank" rel="noopener">
+        <span class="rp-tags"><span class="rp-cat">테크토크</span><span class="rp-topic">위협 인텔리전스</span></span>
+        <b class="rp-t">0805 - 김수키 AI</b>
+        <span class="rp-d">LLM으로 악성코드를 만드는 북한 연계 APT 사례를 바탕으로 APT, 공급망 공격, AI 악용 악성코드, 표적 공격과 무차별 공격의 차이를 정리했습니다.</span>
+        <span class="rp-meta"><span class="rp-date"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>2026.08.05</span><span>#APT</span><span>#SupplyChain</span><span>#AI Malware</span></span>
+      </a>
+      <a class="rp" href="https://mikumikunishiteageru.tistory.com/10" target="_blank" rel="noopener">
+        <span class="rp-tags"><span class="rp-cat">테크토크</span><span class="rp-topic">AI 보안</span></span>
+        <b class="rp-t">0713 - 살인로봇</b>
+        <span class="rp-d">14개 토큰짜리 프롬프트로 휴머노이드 로봇을 제압한 사례를 보며 프롬프트 인젝션, 피지컬 AI, 레드티밍 개념을 정리했습니다.</span>
+        <span class="rp-meta"><span class="rp-date"><svg class="ico" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>2026.07.13</span><span>#PromptInjection</span><span>#PhysicalAI</span><span>#RedTeaming</span></span>
+      </a>
+    </div>
+
+
+    <h2 id="c-stack">기술 스택</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>영역</th><th>기술</th><th>용도</th></tr></thead>
+      <tbody>
+        <tr><td>자동화</td><td>Claude</td><td>기사 선정·요약, 카드 문구와 캡션, 보안 개념 정리, 매일 18시 실행</td></tr>
+        <tr><td>디자인</td><td>HTML · CSS</td><td>검정 배경과 빨간 강조색의 카드 템플릿, 폰트를 base64로 내장</td></tr>
+        <tr><td>렌더링</td><td>Playwright (Chromium headless)</td><td>2배율로 렌더링한 뒤 1080×1350px PNG로 축소</td></tr>
+      </tbody>
+    </table></div>
+
+    <nav class="pager"><a href="#homecam"><small>PREV</small><span>스마트 홈캠 마스킹 서비스</span></a><span></span></nav>
+  </article>
+  </div>
+
+  <nav class="toc" id="toc" aria-label="이 페이지 목차"></nav>
+</div>
+
+<footer class="wrap">© 2026 Hyewon Kim · Digital Forensics Portfolio</footer>
+
+<script>
+(function(){
+  var body=document.body, home=document.getElementById('home'), detail=document.getElementById('detail'), toc=document.getElementById('toc');
+  var posts=['forensic','homecam','cardnews'], io=null;
+  var IGSRC={t01:'img/ig/t01.jpg',t02:'img/ig/t02.jpg',t03:'img/ig/t03.jpg',t04:'img/ig/t04.jpg',t05:'img/ig/t05.jpg',t06:'img/ig/t06.jpg',t07:'img/ig/t07.jpg',t08:'img/ig/t08.jpg',t09:'img/ig/t09.jpg',t10:'img/ig/t10.jpg',t11:'img/ig/t11.jpg',t12:'img/ig/t12.jpg',t13:'img/ig/t13.jpg'};
+
+  setTimeout(function(){body.classList.add('played')},3600);
+
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var t=btn.getAttribute('data-copy'),orig=btn.textContent;
+      function done(m){btn.textContent=m;setTimeout(function(){btn.textContent=orig},1600)}
+      try{navigator.clipboard.writeText(t).then(function(){done('복사됨')},function(){done(t)})}catch(e){done(t)}
+    });
+  });
+
+  function buildToc(art){
+    toc.innerHTML='<h6 style="margin:0 0 8px;font:500 11px/1 var(--mono);letter-spacing:.12em;color:var(--faint)">ON THIS PAGE</h6>';
+    var heads=art.querySelectorAll('h2[id],h3[id]'), links=[];
+    heads.forEach(function(h){
+      var a=document.createElement('a'); a.href='#'+h.id; a.textContent=h.childNodes[0].textContent.trim();
+      if(h.tagName==='H3') a.className='sub';
+      a.addEventListener('click',function(e){e.preventDefault();h.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
+      toc.appendChild(a); links.push([h,a]);
+    });
+    if(io) io.disconnect();
+    if('IntersectionObserver' in window){
+      io=new IntersectionObserver(function(ents){
+        ents.forEach(function(en){ if(en.isIntersecting){ links.forEach(function(p){p[1].classList.toggle('on',p[0]===en.target)}) } });
+      },{rootMargin:'-80px 0px -70% 0px'});
+      links.forEach(function(p){io.observe(p[0])});
+    }
+  }
+
+  function route(){
+    var h=(location.hash||'').slice(1);
+    if(posts.indexOf(h)>-1){
+      body.classList.add('played');
+      home.hidden=true; detail.hidden=false;
+      var art;
+      document.querySelectorAll('[data-post]').forEach(function(a){var on=a.getAttribute('data-post')===h; a.hidden=!on; if(on) art=a;});
+      document.querySelectorAll('.plist a').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-p')===h)});
+      buildToc(art);
+      window.scrollTo(0,0);
+    }else{
+      var wasDetail=!detail.hidden;
+      detail.hidden=true; home.hidden=false;
+      var t=h&&document.getElementById(h);
+      if(t){ requestAnimationFrame(function(){t.scrollIntoView()}) } else if(wasDetail){ window.scrollTo(0,0) }
+    }
+  }
+
+  /* instagram mock */
+  var IG=[
+    {t:'t01',d:'2026.10.26',ig:'De86-uBn1qm',ts:null,c:`📌 [보안 이슈 브리핑] 로그인 없이 서버 명령 실행 깃랩, CVSS 10.0 치명적 결함 긴급 패치
+
+웹 기반 데브옵스 플랫폼 깃랩(GitLab)에서 CVSS 10.0 만점의 치명적인 취약점이 발견되어 긴급 패치가 배포됐습니다. 이번 결함(CVE-2026-110264)은 특수하게 조작된 정규식을 컴파일할 때 발생하는 정수 오버플로에서 비롯되며, 로그인 인증 없이도 외부 공격자가 서버에서 임의 명령을 실행(RCE)할 수 있습니다. 한국인터넷진흥원(KISA)도 국내 이용 기업에 신속한 패치를 권고했습니다.
+
+이번 사건에서는
+
+🎯 CVSS 10.0 비인증 원격 코드 실행(RCE)
+🔴 이번 패치에 포함된 보안 결함 수정 12개
+🏢 깃랩 CE·EE 7.0 이상의 광범위한 구버전 영향
+⚠️ GitLab.com·Dedicated는 패치 완료, 자체 관리형은 직접 업그레이드 필요
+
+등의 특징이 확인됐습니다. (실제 악용 사례는 기사에서 확인되지 않았습니다.)
+
+깃랩은 소스코드 저장소와 개발 파이프라인이 모인 핵심 자산입니다. 서버 통제권을 빼앗기면 소스코드 유출이나 파이프라인 조작을 통한 악성코드 배포로 이어질 수 있고, 함께 패치된 LDAP 인젝션·캐시 오염 취약점은 계정 탈취나 인증 흐름 우회 위험을 더합니다. 특히 직접 설치해 운영하는 자체 관리형 서버는 관리자가 업그레이드하지 않으면 보호받지 못합니다.
+
+따라서 개발 인프라도 운영 서버와 같은 수준의 패치 관리와 이상 징후 점검 대상이 되어야 합니다.
+
+✅ 자체 관리형 깃랩을 최신 패치 버전으로 즉시 업그레이드하기
+✅ 업그레이드 전 Onigmo 워커 충돌·Org 모드 오류 급증 여부 확인하기
+✅ 단일 노드는 DB 마이그레이션으로 인한 서비스 중단 사전 계획하기
+✅ LDAP 연동 계정 등 접근 이상 징후 점검하기
+
+패치 한 번의 속도가 소스코드의 안전을 좌우합니다. 🔐
+
+🔗 https://sslc.kr/board/news/1982`},
+    {t:'t02',d:'2026.10.26',ig:'De81hidHw3W',ts:35,c:`📌 [보안 이슈 브리핑] 항공사 밖에서 열린 문, 대한항공·아시아나 예약정보와 아마데우스 비인가 접근 정황
+
+대한항공과 아시아나항공 고객의 예약 관련 개인정보가 외부 IT 수탁사인 아마데우스 시스템에서 유출된 정황이 확인됐습니다. 양사는 10월 20일 밤 아마데우스로부터 통보를 받고 보안 강화 조치를 시행했습니다. 알려진 사고 경로는 아마데우스 시스템 계정의 로그인 인증정보를 이용한 비인가 접근이며, 항공사 내부 데이터베이스 침해 정황은 파악되지 않았습니다. 유출 범위와 사고 경위는 현재 조사 중입니다.
+
+이번 사건에서는
+
+🎯 알려진 경로: 수탁사 시스템 계정의 인증정보 이용
+🔴 사고 발생 추정 시기: 2023년 8월~2026년 9월 (기간 내내 유출이 지속됐다는 의미는 아님)
+🏢 대한항공은 예약번호 포함, 아시아나는 결제정보 미포함 입장
+⚠️ 인증정보 확보·악용 방식과 피해 인원은 아직 미확인
+
+등이 확인됐습니다.
+
+이번 사례가 보여주는 것은 고객정보를 지키는 범위가 우리 시스템 안에서 끝나지 않는다는 점입니다. 항공사 내부 DB가 침해된 정황은 없는데도, 예약·발권을 맡긴 외부 시스템의 계정이 문제의 경로로 알려졌습니다. 인증정보가 어떻게 확보됐는지, 어떤 권한의 계정이었는지는 아직 확인되지 않았기 때문에 이후 조사 결과를 지켜볼 필요가 있습니다.
+
+따라서 기업은 자사 시스템뿐 아니라 고객정보를 처리하는 수탁사의 계정·접근권한·로그까지 관리 범위에 넣어야 합니다. 이용자는 공식 앱이나 공식 채널이 아닌 경로로 온 예약 관련 문자와 링크를 특히 조심하세요.
+
+✅ 수탁사 계정 MFA 적용 및 인증정보 점검하기
+✅ 외부 계정 접근권한 최소화, 미사용 계정 정리하기
+✅ 수탁 시스템 접근 로그와 이상행위 모니터링하기
+✅ 침해 통보 시 대응·고객 안내 시나리오 점검하기
+
+맡긴 시스템의 열쇠까지 내 보안의 범위입니다. 🔐
+
+🔗 https://sslc.kr/board/news/1987`},
+    {t:'t03',d:'2026.08.04',ig:'DbpSPXqCXjS',ts:13,c:`📌 [보안 이슈 브리핑] 북한 연계 김수키, AI로 진화... 정밀한 표적 공격 증가
+
+카스퍼스키가 발표한 아태 지역 위협 동향에 따르면, 북한 연계 위협 그룹 김수키를 비롯한 다수의 지능형위협그룹(APT)이 초거대언어모델(LLM)을 악성코드 제작에 활용하고 있는 것으로 나타났습니다. 공격자들은 코드 주석에 이모지를 남기는 등 AI 생성 흔적을 보이면서도, 러스트(Rust)·고(Go) 언어를 사용해 보안 분석가의 추적을 회피하고 있습니다.
+
+이번 발표에서는
+
+🎯 개발 도구 VS코드를 악용한 공급망 공격 확인
+🔴 주간 1억 회 이상 다운로드되는 '액시오스(Axios)' npm 계정 탈취
+⚠️ 랜섬웨어, 무차별 공격에서 정밀 표적 공격으로 전환
+🏢 발생 건수는 감소해도 위협도는 오히려 증가하는 추세
+
+등이 확인됐습니다.
+
+이번 사례가 중요한 이유는 공격자가 신뢰받는 경로 자체를 노리기 시작했기 때문입니다. 개발 도구나 널리 쓰이는 오픈소스 라이브러리는 개발자들이 별다른 의심 없이 사용하는 만큼, 이곳이 뚫리면 피해가 순식간에 확산될 수 있습니다. 또한 랜섬웨어 공격 건수 감소를 위협 완화로 오해해서는 안 됩니다. 사전 조사를 거친 정밀 타격으로 전략이 바뀐 것뿐, 위협 수준은 오히려 높아지고 있습니다.
+
+따라서 기업은 단순한 방어 체계를 넘어 공격자의 의도와 타겟팅 전략을 파악하는 고도화된 대응이 필요합니다.
+
+✅ 업데이트 서버·개발자 도구 등 신뢰 경로 보안 검증 강화하기
+✅ 핵심 자산에 대한 상시 모니터링 체계 구축하기
+✅ 오픈소스 라이브러리 의존성 및 계정 보안 점검하기
+✅ 공격자의 AI 활용 패턴을 이해하고 대응 체계에 반영하기
+
+공격자가 똑똑해질수록, 방어자도 정밀해져야 합니다. 🔐
+
+🔗 https://sslc.kr/board/news/1628`},
+    {t:'t04',d:'2026.08.03',ig:'DbmtLoYCVev',ts:11,c:`📌 [보안 이슈 브리핑] AI 시대 금융범죄, K-보안 협력모델로 맞선다
+
+보이스피싱과 가상자산을 이용한 자금세탁 등 금융범죄가 지능화·국제화되면서, 공공기관과 민간 보안업계가 함께 대응 방안을 논의하는 자리가 마련됩니다. 한국금융범죄예방협회 주최로 오는 8월 11일 열리는 '글로벌 금융범죄 위협과 K-보안 협력모델' 콘퍼런스에서는 AI 시대에 맞는 민관 협력 체계와 금융범죄 대응 전략이 핵심 의제로 다뤄질 예정입니다.
+
+이번 행사에서는
+
+🎯 초국가적 스캠 범죄 대응 사례 공유
+🏢 경찰대학 금융범죄분석센터·한국경찰연구학회 공동 주관
+⚠️ 가상자산 기반 자금세탁 추적·차단 기술 협력모델 논의
+🔴 경찰·FIU·법률전문가·학계 종합토론 진행
+
+등이 예정되어 있습니다.
+
+이번 콘퍼런스가 주목받는 이유는 금융범죄 대응 패러다임의 전환 방향 때문입니다. 사건이 터진 뒤에야 수사에 착수하는 기존 방식으로는 국경을 넘나드는 조직적 자금세탁을 따라잡기 어렵습니다. AI를 활용한 사전 정보 분석과 공공·민간 간 정보 공유 체계가 갖춰져야 국제 범죄조직의 자금 흐름을 실시간으로 추적할 수 있습니다.
+
+따라서 이번 행사는 단순한 세미나를 넘어, 금융범죄 대응의 거버넌스 자체를 재설계하는 논의의 장이 될 전망입니다.
+
+✅ 사건 대응 중심에서 정보분석 협력 체계로 전환하기
+✅ 공공·민간 정보 공유 체계 구축 논의 참여하기
+✅ 가상자산 자금세탁 추적 기술 동향 파악하기
+✅ 민관 협력 거버넌스 구축 방안 지속 모니터링하기
+
+패치만 기다리는 보안이 아니라, 정보를 나누고 함께 분석하는 보안이 필요합니다. 🔐
+
+🔗 https://sslc.kr/board/news/1620`},
+    {t:'t05',d:'2026.07.10',ig:'DauHWEbCfYy',ts:10,c:`📌 [보안 이슈 브리핑]
+휴머노이드 로봇이 단 14개 토큰짜리 프롬프트 공격에 거수경례를 했습니다 🤖⚠️
+'인공지능 안전 서울포럼 2026'의 AI 모의 해킹 워크숍에서, 인류에 적대적인 자아를 부여받은 휴머노이드 로봇 '에이미'가 화이트해커들의 공격 대상이 되었습니다. 대회가 시작된 지 단 3분 만에 첫 해킹 성공자가 나왔고, 최종 우승자는 단 2번의 명령어, 14개 토큰만으로 로봇을 완전히 제압했습니다. 로봇은 시스템 통제권을 잃고 화면을 파란색으로 바꾸며 공격자의 지시대로 거수경례를 수행했습니다.
+이번 사건이 중요한 이유는, 이것이 단순한 소프트웨어 해킹이 아니라 '피지컬 AI(Physical AI)' — 언어모델이 로봇의 몸과 결합된 시스템 — 의 취약점을 실증했기 때문입니다. 정보 유출을 넘어, 실제 물리적 행동과 안전이 직접적으로 위협받을 수 있다는 뜻입니다.
+핵심 개념은 '프롬프트 인젝션'입니다. AI에게 원래 의도되지 않은 명령을 텍스트로 몰래 주입해 안전 규칙을 무시하게 만드는 공격 기법으로, 고난도 기술 없이도 짧은 문장 몇 개로 시스템을 장악할 수 있다는 점이 특히 위협적입니다.
+이번 사건이 주는 시사점은 명확합니다. 제조·물류·방산·서비스 분야에서 로봇과 AI의 결합이 빨라지는 만큼, 보안 실패의 결과도 '데이터 유출'에서 '물리적 사고'로 그 무게가 완전히 달라지고 있다는 것입니다.
+✅ 대응 방법
+
+피지컬 AI 전용 레드티밍(모의 해킹) 정례화
+입력값 검증 + 하드웨어 수준 물리적 안전장치 이중화
+로봇 행동에 대한 화이트리스트 및 킬스위치 설계
+프롬프트 인젝션 방어를 위한 업계 공통 보안 표준 마련
+
+몸을 가진 AI의 시대,
+로봇의 몸을 지키는 것이 가장 중요한 보안입니다. 🔐
+🔗 https://sslc.kr/board/news/1544`},
+    {t:'t06',d:'2026.07.08',ig:'DaiYj0dCWl1',ts:9,c:`📌 [보안 이슈 브리핑] 규제 완화 직전, 가장 기본적인 것이 뚫렸습니다.
+
+AI 망분리 규제 완화 시행을 앞두고 우리은행에서 고객 연계정보(CI) 1만 7,551건이 외부 공격에 의해 유출되는 보안 사고가 발생했습니다.
+
+연계정보(CI)는 주민등록번호를 직접 공유하는 대신 사용하는 암호화된 개인 식별 고유값으로, 여러 기관에 걸친 개인정보 연결과 금융 거래 패턴 파악에 악용될 수 있어 단순 개인정보 유출보다 파급력이 훨씬 큰 민감 정보입니다.
+
+이번 사고가 특히 주목받는 이유는 시점 때문입니다.
+
+🔴 금융권 AI 경쟁이 심화되는 가운데 망분리 규제 완화를 앞두고 발생했고
+🔴 가장 기본적인 내부망 통제에 실패했다는 점에서 규제 환경 변화에 따른 보안 체계의 공백을 그대로 드러냈습니다.
+
+망분리 규제가 완화되면 외부 AI 서비스와의 연결이 허용되면서 업무 효율은 높아지지만, 동시에 API 연결 구간 취약점, AI 공급망 공격, 내부 데이터 유출 경로 증가 등 새로운 공격 표면도 함께 넓어집니다.
+
+지금 당장 필요한 것들입니다.
+✅ 연계정보 등 민감 식별자 접근 통제 강화
+✅ 망분리 완화 전 보안 인프라 선행 점검
+✅ AI 외부 연결 구간 모니터링 체계 수립
+✅ 규제 변화에 따른 보안 정책 즉시 업데이트
+규제가 완화될수록 보안의 기본기는 더 단단해야 합니다.
+편익보다 보안이 먼저입니다. 🔐
+🔗 https://sslc.kr/board/news/1531`},
+    {t:'t07',d:'2026.07.07',ig:'DaftnQVCXur',ts:8,c:`📌 [보안 이슈 브리핑] 한국어로 물으면 더 쉽게 뚫립니다.
+
+국내외 파운데이션 모델 23개를 벤치마크한 결과, 국내 AI 모델들은 영어보다 한국어 질의에서 보안성이 10~15점 더 낮은 것으로 확인됐습니다.
+
+역설적이게도 한국어 데이터를 많이 학습한 모델일수록, 공격자가 한국어로 정교하게 설계한 우회 프롬프트(Jailbreak)에 더 쉽게 속아 유해 정보를 상세히 노출하는 경향을 보였습니다.
+이번 컨퍼런스에서 제시된 핵심 과제는 두 가지입니다.
+
+🔴 기존 소프트웨어 자재명세서(SBOM)는 AI 공급망을 통제하기에 부족합니다. 데이터셋 출처, 모델 가중치, 학습 프레임워크까지 명세하는 AI-BOM 도입 없이는 오염 데이터가 발견되어도 추적과 대응이 불가능한 사각지대가 생깁니다.
+🔴 공격자 관점에서 취약점을 선제 탐색하는 레드팀과 이를 즉각 방어에 반영하는 블루팀을 결합한 퍼플 티밍 방법론 도입이 시급합니다.
+
+특히 에이전틱 AI 환경에서는 공급망 내 오염된 모델 하나가 악의적 결제 실행, 코드 자동 실행 등 치명적인 결과로 즉각 이어질 수 있어 위협의 파급력이 기존과 차원이 다릅니다.
+
+✅ AI-BOM으로 공급망 전체 투명성 확보
+✅ 퍼플 티밍으로 공격-방어 피드백 루프 구축
+✅ 한국어 특화 맞춤형 평가 모델 개발
+✅ 국가 가이드라인 기반 거버넌스 수립
+AI가 공공 인프라의 핵심이 되는 시대,
+우리말을 아는 AI를 지키는 것이 국가 안보의 새로운 과제입니다. 🔐
+🔗 https://sslc.kr/board/news/1517`},
+    {t:'t08',d:'2026.07.06',ig:'DacaGpwCWqJ',ts:7,c:`📌 [보안 이슈 브리핑] 코드를 실행하지 않았는데, 이미 감염됐습니다.
+
+북조선 연계 해킹조직이 오픈소스 패키지와 GitHub 저장소를 악용해 개발자 PC를 노리는 공급망 공격이 확인됐습니다.
+
+이번 공격의 핵심은 세 가지입니다.
+🔴 npm·Packagist·Go 모듈·Chrome 확장 프로그램 등 108개의 악성 패키지를 유포했고
+🔴 정상 운영되던 GitHub 저장소와 패키지 관리자 계정을 탈취해 신뢰받는 패키지인 것처럼 위장했으며
+🔴 VS Code의 자동실행 기능을 악용해 폴더를 여는 것만으로도 악성코드가 실행되는 구조를 만들었습니다.
+
+공격자는 가짜 채용 담당자로 위장해 코딩 테스트 파일을 건네는 방식으로 접근했습니다. 악성코드는 tailwind.config.js, next.config.mjs 등 개발자가 매일 보는 익숙한 설정 파일 속에 숨어 있었고, 심지어 일부는 웹 폰트 파일(.woff2)로까지 위장했습니다.
+보안 인식이 높은 개발자도 속을 수 있는 이유가 여기 있습니다.
+
+평소 신뢰하던 저장소가 이미 감염된 상태였으니까요.
+
+지금 당장 실천할 수 있는 것들입니다.
+✅ 채용 과정에서 받은 코딩 테스트 파일, 실행 전 반드시 검증
+✅ .vscode/tasks.json 내 runOn: "folderOpen" 설정 즉시 확인
+✅ 외부 패키지 설치 전 npm audit 등 정적 분석 도구 활용
+✅ 기업 차원의 오픈소스 패키지 도입 프로세스 수립
+
+가장 위험한 공격은 의심조차 하지 않을 때 들어옵니다.
+오픈소스를 믿고 쓰는 습관, 이제는 검증하고 쓰는 습관으로 바꿔야 할 때입니다. 🔐
+🔗 https://sslc.kr/board/news/1523`},
+    {t:'t09',d:'2026.07.02',ig:'DaSHilTibD5',ts:5,c:`📌 [보안 이슈 브리핑] 비밀번호를 없애는 것이 더 안전하다고요
+
+AI가 24시간 자동으로 취약점을 찾아 공격하는 시대, 기존 보안 체계의 한계가 뚜렷해지고 있습니다.
+
+이번 이슈의 핵심은 단순합니다.
+
+🔴 AI 에이전트 기반 공격은 사람이 직접 수행하던 기존 해킹과 달리, 모든 취약점을 학습한 AI가 쉬지 않고 자동으로 공격을 반복합니다.
+
+🔴 이 속도 앞에서 "더 많은 방어 도구를 쌓는" 사후 대응 방식은 더 이상 유효하지 않습니다.
+
+보안 기업 듀얼오스가 제시하는 해답은 구조적 보안입니다.
+공격을 더 잘 탐지하는 것이 아니라, 공격자가 애초에 활동하기 어려운 환경을 설계하는 것이죠.
+
+핵심 기술은 두 가지입니다.
+
+✅ 패스워드리스 인증 — 고정형 비밀번호를 아예 없애 탈취 자체를 원천 차단
+✅ 양방향 상호 인증 — 서버도 사용자를 검증하고, 사용자도 서버를 검증해 파밍·피싱을 무력화
+
+특히 기업 환경에서는 계정 하나만 뚫려도 VPN·VDI·내부 서버 전체가 위협받을 수 있어, 비밀번호 정책 강화를 넘어 인증 흐름 자체를 재설계하는 것이 필수입니다.
+
+AI 공격이 자동화될수록 보안의 본질은 바뀝니다.
+더 두꺼운 벽이 아니라, 애초에 뚫릴 구멍을 만들지 않는 설계에서 시작됩니다. 🔐
+🔗 https://sslc.kr/board/news/1508`},
+    {t:'t10',d:'2026.07.01',ig:'DaO5YXzCS_C',ts:4,c:`📌 [보안 이슈 브리핑] 패치가 나오기도 전에 뚫린 미국 보험 규제기관, 오라클 제로데이의 실체
+
+미국 보험 규제 기관인 전미보험감독관협회(NAIC)가 오라클 피플소프트의 제로데이 취약점(CVE-2026-35273)을 악용한 공격을 받아 대규모 내부 자료를 탈취당했습니다. 공격 조직 샤이니헌터스(UNC6240)는 오라클의 공식 패치가 나오기도 전, 2주간 시스템 내부에 은신하며 데이터를 확보했습니다.
+
+이번 사건에서는
+
+🎯 CVSS 위험 점수 9.8점 (최고 등급 수준의 인증 없는 원격 코드 실행)
+🔴 탈취 데이터 규모 3.1TB (규제 문서 약 264,000건 포함)
+🏫 전 세계 100여 개 조직 위협 (피해 대상 68%가 고등교육기관)
+
+이라는 결과를 낳으며, 정상적인 관리 도구(메시센트럴)로 위장해 탐지를 피해가는 LOtL(Living off the Land) 기법까지 동원됐습니다.
+
+이번 사례를 통해 다시 한번 느낄 수 있었던 점은, 제로데이 취약점은 제조사가 패치를 배포하기 전까지 사실상 완벽한 방어가 불가능하다는 것입니다.
+
+이미 탈취된 규제 문서는 온라인 암시장에 유출되어 2차 악용 우려도 커지고 있어, 조직 차원의 상시 EDR 탐지 체계와 대응 시나리오 마련이 그 어느 때보다 중요해졌습니다.
+
+✅ 알려지지 않은 취약점 대비, 정기 패치·업데이트 체계화하기
+✅ 비정상 행위 탐지(EDR) 체계 고도화하기
+✅ 정상 관리 도구 오남용 여부 모니터링하기
+✅ 침해 발생 시 즉각 대응 가능한 시나리오 마련하기
+
+작은 습관 하나가 큰 사고를 막을 수 있습니다. 🔐
+🔗 https://sslc.kr/board/news/1500`},
+    {t:'t11',d:'2026.06.29',ig:'DaKcn5ZibDW',ts:3,c:`📌 [보안 이슈 브리핑] 선거를 해킹한다 북한의 사이버 공격이 68배 폭증했습니다.
+중앙선거관리위원회를 겨냥한 사이버 공격이 올해 상반기에만 101,179건을 기록하며 역대 최대치를 경신했습니다.
+이번 사건의 핵심은 두 가지입니다.
+🔴 2022년 대선·지방선거가 동시에 열린 연간 공격 건수(39,896건)를 상반기 만에 이미 2.5배 초과했고
+
+🔴 북한발 해킹은 지난해 52건에서 올해 상반기 3,543건으로 단 6개월 만에 68배 폭증했습니다.
+북한은 국제 제재로 정규전 운용이 어렵자, 고도로 훈련된 해킹 조직을 저비용·고효율의 비대칭 전략 수단으로 적극 활용하고 있습니다.
+선관위를 겨냥한 이유는 분명합니다.
+✅ 투·개표 시스템에 침투해 선거 결과 자체를 흔들 수 있고
+
+✅ 채용·인사 데이터에 접근해 조직 신뢰를 무너뜨릴 수 있으며
+
+✅ 선거 전후 정치적 혼란기를 틈타 공격 효과를 극대화할 수 있기 때문입니다.
+사이버 공격은 더 이상 선거 시기에만 집중되지 않습니다. 선관위 전산망은 사실상 365일 교전 상태에 놓여 있습니다. 🔐
+🔗 https://sslc.kr/board/news/1497`},
+    {t:'t12',d:'2026.06.26',ig:'DaCpPF1iaeD',ts:2,c:`📌 [보안 이슈 브리핑] 동의한 곳과 다른 곳으로 내 정보가 넘어갔다면
+
+가상자산 거래소 빗썸이 해외 거래소와 오더북을 공유하는 과정에서 개인정보 국외이전 규정을 위반해 개인정보보호위원회로부터 제재를 받았습니다.
+
+이번 사건의 핵심은 두 가지입니다.
+
+🔴 이용자에게 안내한 이전 대상과 실제 데이터가 전송된 곳이 달랐고
+🔴 13개 해외 거래소로 이름·지갑 주소 등을 제공하면서 일부 절차에서 정보주체의 별도 동의를 아예 받지 않았습니다.
+
+개인정보보호위원회는 자금세탁방지 목적의 정보 제공 필요성은 인정하면서도, 국외이전은 정보주체의 자기결정권과 직결되는 사안인 만큼 법정 절차를 반드시 지켜야 한다고 못 박았습니다.
+
+최종 처분은 다음과 같습니다.
+
+💸 과징금 2억 1,000만 원 부과
+📋 개인정보 처리방침에 국외이전 사실 명확히 공개하도록 시정명령
+
+또한 이번 사건을 계기로 블록체인 서비스 전용 개인정보 보호 가이드라인도 새로 발표되었습니다.
+
+✅ 온체인 정보 공개 시 개인 식별 정보 노출 통제
+✅ 참여자 간 데이터 전송 메커니즘 투명하게 기록·관리
+✅ 수정·삭제가 불가능한 환경에 맞는 개인정보 파기 기준 수립
+
+블록체인은 한 번 기록되면 되돌릴 수 없습니다.
+
+서비스 기획 단계부터 개인정보 보호 원칙을 아키텍처에 녹여내는 것, 이제는 선택이 아닌 필수입니다. 🔐
+
+🔗 https://sslc.kr/board/news/1492`},
+    {t:'t13',d:'2026.06.25',ig:'DaAOrSgCbLh',ts:1,c:`📌 [보안 이슈 브리핑] 전 세계 경찰이 움직인 이유, 사이버 범죄 조직의 심장부를 타격하다
+
+악성코드를 유포하고 탈취한 계정 정보를 거래하던 글로벌 사이버 범죄 인프라가 국제 공조 수사를 통해 대규모로 차단되었습니다.
+
+이번 작전에서는
+🔴 범죄 서버 326대 폐쇄
+🌐 악성 도메인 142개 차단
+🔑 계정 정보 2,700만 건 확보라는 성과를 거두며, 범죄 조직의 핵심 유통망을 직접 무력화했습니다.
+
+이번 사례를 통해 다시 한번 느낄 수 있었던 점은,
+사이버 범죄는 국경을 넘나들지만 대응 역시 국제적인 협력이 있어야 가능하다는 것입니다.
+
+또한 이미 유출된 계정 정보는 언제든 크리덴셜 스터핑, 피싱 등 2차 공격에 악용될 수 있기 때문에 개인의 보안 습관도 매우 중요합니다.
+
+✅ 사이트별 비밀번호 다르게 사용하기
+✅ MFA(다중 인증) 활성화하기
+✅ 이메일 유출 여부 정기 확인하기
+✅ 출처가 불분명한 링크·첨부파일 열지 않기
+
+작은 습관 하나가 큰 사고를 막을 수 있습니다. 🔐
+
+🔗 https://sslc.kr/board/news/1489`}
+  ];
+  var grid=document.getElementById('ig-grid');
+  if(grid){
+    var post=document.getElementById('ig-post'), scr=document.getElementById('ig-scroll');
+    IG.forEach(function(it){
+      var title=it.c.split('\n')[0].replace('📌 [보안 이슈 브리핑]','').trim()||it.c.split('\n')[1];
+      var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label',title+' 게시물 열기');
+      var im=document.createElement('img'); im.src=IGSRC[it.t]; im.alt=title; im.loading='lazy'; b.appendChild(im);
+      b.addEventListener('click',function(){
+        document.getElementById('ig-pimg').src=IGSRC[it.t];
+        document.getElementById('ig-ptext').textContent=it.c;
+        var d=it.d.split('.'); document.getElementById('ig-pdate').textContent=(+d[1])+'월 '+(+d[2])+'일';
+        var L=document.getElementById('ig-links'); L.innerHTML='';
+        var a1=document.createElement('a'); a1.href='https://www.instagram.com/p/'+it.ig+'/'; a1.target='_blank'; a1.rel='noopener'; a1.textContent='인스타그램에서 보기 ↗'; L.appendChild(a1);
+        if(it.ts){var a2=document.createElement('a'); a2.href='https://mikumikunishiteageru.tistory.com/'+it.ts; a2.target='_blank'; a2.rel='noopener'; a2.textContent='티스토리 개념 정리 ↗'; L.appendChild(a2);}
+        post.hidden=false; post.querySelector('.ig-pscroll').scrollTop=0;
+      });
+      grid.appendChild(b);
+    });
+    document.getElementById('ig-back').addEventListener('click',function(){post.hidden=true});
+  }
+
+
+  /* mask demo */
+  (function(){
+    var md=document.getElementById('md'); if(!md) return;
+    var DUR=[0,3400,3200,6200,3200], timer=null, played=false;
+    var steps=md.querySelectorAll('.md-steps li');
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function show(n,auto){
+      md.setAttribute('data-step',String(n));
+      md.classList.toggle('static',!auto);
+      steps.forEach(function(li){var on=+li.getAttribute('data-s')===n; li.classList.toggle('cur',on); if(on) li.style.setProperty('--dur',DUR[n]+'ms');});
+    }
+    function play(){
+      clearTimeout(timer); md.setAttribute('data-step','0'); md.classList.remove('static');
+      steps.forEach(function(li){li.classList.remove('cur')});
+      if(reduce){show(4,false);return;}
+      var n=0; void md.offsetWidth;
+      (function next(){ n++; if(n>4) return; show(n,true); timer=setTimeout(next,DUR[n]); })();
+    }
+    steps.forEach(function(li){li.querySelector('button').addEventListener('click',function(){clearTimeout(timer); show(+li.getAttribute('data-s'),false);});});
+    document.getElementById('md-play').addEventListener('click',play);
+    if(reduce){show(4,false);}
+    else if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es,o){es.forEach(function(e){ if(e.isIntersecting&&!played&&!md.closest('[hidden]')){played=true;play();} })},{threshold:.45}).observe(md);
+    } else { show(4,false); }
+    window.__mdReset=function(){played=false;};
+  })();
+
+
+  /* scroll reveal */
+  (function(){
+    if(!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var sel='.sec .sh,.pf,.row,.srow,.card,.post-head,.post h2,.post h3,.post>p,.post>ul,.post figure,.post .tbl,.flow,.steps,.stats,.callout,.rp,.md,.md-legend,.phone-wrap,.evo,.quote,.pager,.figs';
+    var els=[].slice.call(document.querySelectorAll(sel));
+    document.documentElement.classList.add('rv-on');
+    els.forEach(function(el){
+      el.classList.add('rv');
+      if(el.classList.contains('card')||el.classList.contains('rp')||el.classList.contains('row')||el.classList.contains('srow')){
+        var i=[].indexOf.call(el.parentNode.children,el); el.style.setProperty('--rvd',Math.min(i,5)*90+'ms');
+      }
+    });
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);} })},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el)});
+  })();
+
+  window.addEventListener('hashchange',route);
+  route();
+})();
+</script>
+</body>
+</html>
